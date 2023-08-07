@@ -44,6 +44,7 @@
     neovim
     spotify
     lutris
+    protonup-qt
     vscode
     transmission-qt
   ];
