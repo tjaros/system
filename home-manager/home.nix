@@ -44,6 +44,8 @@
     neovim
     spotify
     lutris
+    wine
+    winetricks
     steam
     protonup-qt
     vscode
