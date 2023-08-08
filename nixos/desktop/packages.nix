@@ -19,6 +19,8 @@
     socat
     xdotool
     unzip
+    direnv
+    nix-direnv
     firefox
     keybase
     keybase-gui
