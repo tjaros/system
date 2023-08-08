@@ -20,6 +20,7 @@
     xdotool
     unzip
     direnv
+    hack-font
     nix-direnv
     firefox
     keybase
