@@ -46,6 +46,8 @@
     lutris
     wine
     winetricks
+    runelite
+    discord
     steam
     protonup-qt
     vscode
