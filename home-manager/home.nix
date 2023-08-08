@@ -43,6 +43,7 @@
   tjaros.emacs.enable = true;
 
   home.packages = with pkgs; [ 
+    
     spotify
     lutris
     wine
