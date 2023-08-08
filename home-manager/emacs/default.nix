@@ -151,6 +151,7 @@ in {
             enable = true;
             init = ''
               (setq evil-want-C-i-jump nil)
+              (setq evil-want-keybinding nil)
             '';
             config = ''
               (evil-mode 1)
