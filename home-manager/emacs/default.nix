@@ -2,9 +2,9 @@
 
 with lib;
 
-let cfg = config.xe.emacs;
+let cfg = config.tjaros.emacs;
 in {
-  options.xe.emacs.enable = mkEnableOption "emacs without spacemacs support";
+  options.tjaros.emacs.enable = mkEnableOption "emacs without spacemacs support";
   imports = [ ./emacs-init.nix ];
 
   config = mkIf cfg.enable {

@@ -8,6 +8,8 @@
     shell = pkgs.fish;
   };
 
+  tjaros.emacs.enable = true;
+
   services.xserver.displayManager.autoLogin = {
     enable = true;
     user = "tjaros";
