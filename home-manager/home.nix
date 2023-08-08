@@ -42,7 +42,7 @@
 
   # Add stuff for your user as you see fit:
   
-  services.emacs.package = pkgs.emacs-unstable;
+  services.emacs.package = pkgs.emacsGit-nox;
 
   home.packages = with pkgs; [ 
     spotify
