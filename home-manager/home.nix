@@ -41,12 +41,13 @@
   };
 
   # Add stuff for your user as you see fit:
-  
+  services.emacs.enable = true;
   services.emacs.package = pkgs.emacsGit-nox;
 
   home.packages = with pkgs; [ 
     spotify
     lutris
+    emacsGit-nox
     wine
     winetricks
     runelite
