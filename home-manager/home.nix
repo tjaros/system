@@ -14,8 +14,9 @@
   nixpkgs = {
     # You can add overlays here
     overlays = [
-      # If you want to use overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
+      (import (builtins.fetchTarball {
+        url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+      }))
 
       # Or define it inline, for example:
       # (final: prev: {
@@ -39,7 +40,9 @@
   };
 
   # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
+  
+  services.emacs.package = pkgs.emacs-unstable;
+
   home.packages = with pkgs; [ 
     spotify
     lutris
