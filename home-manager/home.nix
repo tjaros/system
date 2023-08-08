@@ -8,7 +8,7 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
+    ./emacs
   ];
 
   nixpkgs = {
@@ -40,14 +40,9 @@
     homeDirectory = "/home/tjaros";
   };
 
-  # Add stuff for your user as you see fit:
-  services.emacs.enable = true;
-  services.emacs.package = pkgs.emacsGit-nox;
-
   home.packages = with pkgs; [ 
     spotify
     lutris
-    emacsGit-nox
     wine
     winetricks
     runelite
