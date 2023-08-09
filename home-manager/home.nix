@@ -53,6 +53,7 @@
     steam
     protonup-qt
     vscode
+    zoom
     transmission-qt
   ];
 
