@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   environment.systemPackages = with pkgs; [
     st
@@ -7,7 +9,7 @@
     rofi
     xbacklight
   ];
-  
+
   services = {
     xserver = {
       enable = true;
