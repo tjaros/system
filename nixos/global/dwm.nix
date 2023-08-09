@@ -3,6 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     st
+    harfbuzz
     dunst
     pamixer
     libnotify
