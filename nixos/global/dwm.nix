@@ -1,21 +1,13 @@
-
 {
   services = {
     xserver = {
       enable = true;
-      videoDrivers = ["modesetting"];
-      displayManager = {
-        gdm = {
-          enable = true;
-          wayland = true;
-        };
-      };
+      videoDrivers = ["nvidia"];
+      windowManager.dwm.enable = true;
       layout = "us";
       xkbVariant = "dvorak";
     };
   };
-
-  services.xserver.desktopManager.plasma5.enable = true;
 
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
