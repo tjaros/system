@@ -10,7 +10,7 @@
     overlays = [
       (import (builtins.fetchTarball {
         url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
-        sha256 = "174zhagljwb54q8byv79nz3ykvaxa72bkw7i20r0w06xhklljlrs";
+        sha256 = "1pk4gvpadyh1zhj4g3fjv69nqyb68agkz83cx5v0yryczbdpq6r2";
       }))
     ];
     
@@ -19,6 +19,7 @@
       allowUnfreePredicate = (_: true);
     };
   };
+
 
   home = {
     username = "tjaros";
