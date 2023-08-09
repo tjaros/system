@@ -1,9 +1,18 @@
 {
+  environment.systemPackages = with pkgs; [
+    st
+    dunst
+    pamixer
+    libnotify
+    rofi
+    xbacklight
+  ];
+  
   services = {
     xserver = {
       enable = true;
       windowManager.dwm.enable = true;
-      displayManager.sddm.enable = true;
+      displayManager.lightdm.enable = true;
       layout = "us";
       xkbVariant = "dvorak";
     };
