@@ -36,7 +36,6 @@
     homeDirectory = "/home/tjaros";
   };
 
-  services.windowManager.dwm.enable = true;
   modules.emacs.enable = true;
 
   home.packages = with pkgs; [ 
