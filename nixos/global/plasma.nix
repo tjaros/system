@@ -3,7 +3,7 @@
   services = {
     xserver = {
       enable = true;
-      videoDrivers = ["nvidia"];
+      videoDrivers = ["modesetting"];
       displayManager = {
         gdm = {
           enable = true;
