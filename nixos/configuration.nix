@@ -5,6 +5,7 @@
     [
       inputs.home-manager.nixosModules.home-manager
       ./desktop
+      ./global/dwm.nix
       ./global/fish.nix
       ./global/fonts.nix
       ./global/keybase.nix
