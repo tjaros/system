@@ -26,6 +26,7 @@
   };
 
   modules.emacs.enable = true;
+  modules.eww.enable = true;
 
   home.packages = with pkgs; [ 
     spotify
