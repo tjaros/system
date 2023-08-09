@@ -7,7 +7,7 @@
     pamixer
     libnotify
     rofi
-    xbacklight
+    xorg.xbacklight
   ];
 
   services = {
