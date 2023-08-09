@@ -11,7 +11,6 @@ in {
         wl-clipboard
         hyprland
         dunst
-        grimblast 
         hyprpaper
       ];
 
