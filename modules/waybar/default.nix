@@ -1,16 +1,18 @@
  { pkgs, lib, config, ... }:
 
  {
-  xdg.configFile."waybar/style.css".text = import ./style.nix;
-  programs.waybar = {
-    enable = true;
-    package = pkgs.waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-      patchPhase = ''
-        substituteInPlace src/modules/wlr/workspace_manager.cpp --replace "zext_workspace_handle_v1_activate(workspace_handle_);" "const std::string command = \"${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch workspace \" + name_; system(command.c_str());"
-      '';
-    });
-
+   xdg.configFile."waybar/style.css".text = import ./style.nix;
+   programs.waybar.enable = true;
+   programs.waybar.package = pkgs.waybar.overrideAttrs (oa: {
+    mesonFlags = (oa.mesonFlags or  []) ++ [ "-Dexperimental=true" ];
+    patches = (oa.patches or []) ++ [
+      (pkgs.fetchpatch {
+        name = "fix waybar hyprctl";
+        url = "https://aur.archlinux.org/cgit/aur.git/plain/hyprctl.patch?h=waybar-hyprland-git";
+        sha256 = "sha256-pY3+9Dhi61Jo2cPnBdmn3NUTSA8bAbtgsk2ooj4y7aQ=";
+      })
+    ];
+  });
     settings = {
       mainBar = {
         layer = "top";
