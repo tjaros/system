@@ -11,7 +11,7 @@
       ./global/keybase.nix
       ./global/locale.nix
       ./global/misc.nix
-      ./global/nvidia.nix
+      #./global/nvidia.nix
       ./global/pipewire.nix
       ./hardware-configuration.nix
       ./users/tjaros
