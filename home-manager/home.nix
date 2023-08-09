@@ -53,6 +53,7 @@
     steam
     protonup-qt
     vscode
+    xivlauncher
     zoom-us
     transmission-qt
   ];
