@@ -6,3 +6,4 @@ hyprpaper &
 
 dunst
 
+eww -c ~/.config/eww/bar --restart open bar

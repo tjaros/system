@@ -27,7 +27,6 @@
   };
 
   modules.emacs.enable = true;
-  modules.hypr.enable = true;
 
   home.packages = with pkgs; [ 
     spotify

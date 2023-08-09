@@ -7,8 +7,8 @@
       ./desktop
       ./global/fish.nix
       ./global/fonts.nix
-      ./global/hyprland.nix
       ./global/keybase.nix
+      ./global/plasma.nix
       ./global/locale.nix
       ./global/misc.nix
       ./global/nvidia.nix
