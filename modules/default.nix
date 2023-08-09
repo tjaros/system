@@ -5,6 +5,5 @@
   imports = [
     ./emacs
     ./hypr
-    ./waybar
   ];
 }
