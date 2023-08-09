@@ -1,6 +1,20 @@
 { inputs, outputs, config, pkgs, lib, ... }:
 
 {
+
+  nixpkgs = {
+    overlays  = [
+      (self: super: {
+        dwm = super.dwm.overrideAttrs (oldattrs: {
+          src = fetchGit {
+            url = "https://github.com/tjaros/dwm.git";
+            rev = "7472a24114cd7fca4e039a464a6266428f963898";
+          }; 
+        });
+      })
+    ];
+  };
+
   imports =
     [
       inputs.home-manager.nixosModules.home-manager
