@@ -10,6 +10,8 @@ in {
         wofi
         wl-clipboard
         hyprland
+        dunst
+        grimblast 
         hyprpaper
       ];
 
