@@ -181,7 +181,7 @@ in {
             after = [ "evil" ];
           };
 
-          jupyter = {
+          ein = {
             enable = true;
           };
 
