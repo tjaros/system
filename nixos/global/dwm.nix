@@ -8,7 +8,7 @@
     pamixer
     libnotify
     rofi
-    dwmbar
+    nitrogen
     xorg.xbacklight
   ];
 
