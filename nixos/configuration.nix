@@ -8,7 +8,7 @@
         dwm = super.dwm.overrideAttrs (oldattrs: {
           src = fetchGit {
             url = "https://github.com/tjaros/dwm.git";
-            rev = "81040da695a1acae6d7dde38f2927ab5f43fd992";
+            rev = "949c6aba737c2dcd22c86bec0ba99551651b9d0c";
           }; 
         });
       })
