@@ -113,7 +113,7 @@ in {
 
         usePackage = {
           company = {
-            enable = true;
+            enable = false;
             diminish = [ "company-mode" ];
             config = ''
               (company-mode)
@@ -209,13 +209,13 @@ in {
           };
 
           lsp-ui = {
-            enable = true;
+            enable = false;
             after = [ "lsp" ];
             command = [ "lsp-ui-mode" ];
           };
 
           lsp-ivy = {
-            enable = true;
+            enable = false;
             after = [ "lsp" "ivy" ];
             command = [ "lsp-ivy-workspace-symbol" ];
           };
