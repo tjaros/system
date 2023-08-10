@@ -2,7 +2,12 @@
 
 with lib;
 
-let cfg = config.modules.emacs;
+let
+  cfg = config.modules.emacs;
+  lsp-bridge = builtins.fetchGit {
+    url = "https://github.com/manateelazycat/lsp-bridge.git";
+    rev = "d7dbd6ffca0d79493e084895d30df265453e21c9";
+  };
 in {
   options.modules.emacs.enable = mkEnableOption "emacs without spacemacs support";
   imports = [ ./emacs-init.nix ];
@@ -15,6 +20,8 @@ in {
       '';
       executable = true;
     };
+
+    home.file.".emacs.d/lisp/lsp-bridge".source = lsp-bridge; 
 
     services.emacs.enable = true;
     #services.emacs.package = pkgs.emacsNativeComp;
