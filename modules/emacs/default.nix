@@ -14,22 +14,14 @@ in {
 
 
   config = mkIf cfg.enable {
-    home.file."bin/e" = {
-      text = ''
-        #!/bin/sh
-        emacsclient $@
-      '';
-      executable = true;
-    };
-
     home.file.".emacs.d/lisp/lsp-bridge".source = lsp-bridge; 
 
     
     services.emacs.enable = true;
-    #services.emacs.package = pkgs.emacsNativeComp;
+    services.emacs.package = pkgs.commercial-emacs;
     programs.emacs = {
       enable = true;
-      #package = pkgs.emacsNativeComp;
+      package = pkgs.commercial-emacs;
 
       init = {
         enable = true;
