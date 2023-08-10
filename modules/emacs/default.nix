@@ -12,6 +12,17 @@ in {
   options.modules.emacs.enable = mkEnableOption "emacs without spacemacs support";
   imports = [ ./emacs-init.nix ];
 
+  home.packages = with pkgs; [
+    # The lsp-bridge plugin has nasty python dependencies
+    # not sure how to isolate them for emacs to use and
+    # and at the same time having working direnv shells
+    python311Full
+    python311Packages.epc
+    python311Packages.orjson
+    python311Packages.sexpdata
+    python311Packages.paramiko
+  ];
+
   config = mkIf cfg.enable {
     home.file."bin/e" = {
       text = ''
