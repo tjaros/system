@@ -9,6 +9,7 @@
     libnotify
     rofi
     nitrogen
+    acpi
     xorg.xbacklight
   ];
 
