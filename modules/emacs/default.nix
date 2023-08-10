@@ -96,7 +96,10 @@ in {
 
           (set-frame-parameter (selected-frame) 'alpha '(85 . 85))
           (add-to-list 'default-frame-alist '(alpha . (85 . 85)))
-          
+
+          (add-to-list 'load-path "${pkgs.emacsPackages.lsp-bridge}")
+          (require 'lsp-bridge)
+          (global-lsp-bridge-mode)
         '';
 
         usePackageVerbose = true;
@@ -186,7 +189,7 @@ in {
           go-mode = { enable = true; };
 
           lsp-mode = {
-            enable = true;
+            enable = false;
             command = [ "lsp" ];
             hook = [
               "(go-mode . lsp)"
@@ -374,6 +377,13 @@ in {
             config = ''
               (setq custom-safe-themes t)
               (add-hook 'after-init-hook (lambda () (load-theme 'gruvbox t)))
+            '';
+          };
+
+          yasnippet = {
+            enable = true;
+            config = ''
+              (yas-global-mode 1)
             '';
           };
 
