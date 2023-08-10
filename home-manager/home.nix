@@ -39,6 +39,7 @@
     steam
     protonup-qt
     vscode
+    quartus-prime-lite
     xivlauncher
     zoom-us
     transmission-qt
