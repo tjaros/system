@@ -17,14 +17,17 @@ in {
     home.file.".emacs.d/lisp/lsp-bridge".source = lsp-bridge; 
 
     
-    #services.emacs.enable = true;
-    programs.emacs.package = pkgs.commercial-emacs.overrideAttrs (oldAttrs: rec {
-        nativeComp = true;
-        withTreeSitter = true;
+    services.emacs.enable = true;
+    services.emacs.package = pkgs.emacs-unstable.overrideAttrs (finalAttrs: previousAttrs: {
+      withNativeComp = true;
+      withTreeSitter = true;
     });
     programs.emacs = {
       enable = true;
-      #package = pkgs.emacsNativeComp;
+      package = pkgs.emacs-unstable.overrideAttrs (finalAttrs: previousAttrs: {
+        withNativeComp = true;
+        withTreeSitter = true;
+      });
 
       init = {
         enable = true;
