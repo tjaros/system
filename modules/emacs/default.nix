@@ -186,6 +186,11 @@ in {
             after = [ "magit" ];
           };
 
+          evil-dvorak = {
+            enable = true;
+            after = [ "evil" ];
+          };
+
           flycheck = {
             enable = true;
             diminish = [ "flycheck-mode" ];
