@@ -181,11 +181,6 @@ in {
             after = [ "evil" ];
           };
 
-          evil-magit = {
-            enable = true;
-            after = [ "magit" ];
-          };
-
           evil-dvorak = {
             enable = true;
             after = [ "evil" ];
