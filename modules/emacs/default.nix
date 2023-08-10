@@ -181,14 +181,6 @@ in {
             after = [ "evil" ];
           };
 
-          evil-dvorak = {
-            enable = true;
-            after = [ "evil" ];
-            config = ''
-              (global-evil-dvorak-mode 1)
-            '';
-          };
-
           jupyter = {
             enable = true;
           };
