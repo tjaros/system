@@ -104,7 +104,7 @@ in {
           (set-frame-parameter (selected-frame) 'alpha '(85 . 85))
           (add-to-list 'default-frame-alist '(alpha . (85 . 85)))
 
-          (add-to-list 'load-path "${pkgs.emacsPackages.lsp-bridge}")
+          (add-to-list 'load-path "~/.emacs.d/lisp/lsp-bridge")
           (require 'lsp-bridge)
           (global-lsp-bridge-mode)
         '';
