@@ -189,6 +189,10 @@ in {
             '';
           };
 
+          jupyter = {
+            enable = true;
+          };
+
           flycheck = {
             enable = true;
             diminish = [ "flycheck-mode" ];
