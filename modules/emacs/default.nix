@@ -171,29 +171,6 @@ in {
 
           better-defaults.enable = true;
 
-          evil = {
-            enable = true;
-            init = ''
-              (setq evil-want-C-i-jump nil)
-              (setq evil-want-keybinding nil)
-            '';
-            config = ''
-              (evil-mode 1)
-            '';
-          };
-
-          evil-surround = {
-            enable = true;
-            config = ''
-              (global-evil-surround-mode 1)
-            '';
-          };
-
-          evil-collection = {
-            enable = true;
-            after = [ "evil" ];
-          };
-
           ein = {
             enable = true;
           };
@@ -225,37 +202,10 @@ in {
             '';
           };
 
-          lsp-ui = {
-            enable = false;
-            after = [ "lsp" ];
-            command = [ "lsp-ui-mode" ];
-          };
-
-          lsp-ivy = {
-            enable = false;
-            after = [ "lsp" "ivy" ];
-            command = [ "lsp-ivy-workspace-symbol" ];
-          };
-
-          nlinum-relative = {
-            enable = true;
-            after = [ "evil" ];
-            config = ''
-              (nlinum-relative-setup-evil)
-              (add-hook 'prog-mode-hook 'nlinum-relative-mode)
-              (add-hook 'org-mode-hook 'nlinum-relative-mode)
-            '';
-          };
-
           general = {
             enable = true;
-            after = [ "evil" "which-key" ];
+            after = [ "which-key" ];
             config = ''
-              (general-evil-setup)
-
-              (general-mmap
-                ":" 'evil-ex
-                ";" 'evil-repeat-find-char)
 
               (general-create-definer my-leader-def
                 :prefix "SPC")
@@ -278,10 +228,6 @@ in {
                 "tf" '(toggle-frame-fullscreen :which-key "fullscreen")
                 "wv" '(split-window-horizontally :which-key "split vertical")
                 "ws" '(split-window-vertically :which-key "split horizontal")
-                "wk" '(evil-window-up :which-key "up")
-                "wj" '(evil-window-down :which-key "down")
-                "wh" '(evil-window-left :which-key "left")
-                "wl" '(evil-window-right :which-key "right")
                 "wd" '(delete-window :which-key "delete")
 
                 "q"  '(:ignore t :which-key "quit")
