@@ -47,7 +47,7 @@ in {
           fontSize = if pkgs.stdenv.isDarwin then "15" else "14";
           emacsFont = ''
             (when window-system
-              (set-frame-font "Hack ${fontSize}"))
+              (set-frame-font "Unifont ${fontSize}"))
           '';
         in emacsFont + ''
           (require 'bind-key)
@@ -118,6 +118,9 @@ in {
           (global-lsp-bridge-mode)
           (setq lsp-bridge-nix-lsp-server 'nil)
           (add-hook 'direnv-envrc-mode-hook 'lsp-bridge-restart-process)
+
+
+          
         '';
 
         usePackageVerbose = true;
@@ -240,7 +243,7 @@ in {
           };
 
           general = {
-            enable = false;
+            enable = true;
             after = [ "which-key" ];
             config = ''
 
