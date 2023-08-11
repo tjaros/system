@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ inputs, pkgs, lib, config, ... }:
 
 with lib;
 
@@ -11,25 +11,26 @@ let
 in {
   options.modules.emacs.enable = mkEnableOption "emacs without spacemacs support";
   imports = [ ./emacs-init.nix ];
-
-
-  home.packages = with pkgs; [
-    python311.withPackages (ps: with ps; [
-      # The lsp-bridge has some python dependencies and we need
-      # them to be present in any devshell which uses python
-      epc
-      orjson
-      sexpdata
-      paramiko
-    ])
-    # Language servers
-    nil # nix lsp
-    nodePackages.pyright # python lsp
-  ];
-    
   
   config = mkIf cfg.enable {
-    home.file.".emacs.d/lisp/lsp-bridge".source = lsp-bridge; 
+
+    # Dependencies
+    home.packages = with pkgs; [
+      python311.withPackages (ps: with ps; [
+        # The lsp-bridge has some python dependencies and we need
+        # them to be present in any devshell which uses python
+        epc
+        orjson
+        sexpdata
+        paramiko
+      ])
+      # Language servers
+      nil # nix lsp
+      nodePackages.pyright # python lsp
+    ];
+
+    home.file.".emacs.d/lisp/lsp-bridge".source = lsp-bridge;
+    
     services.emacs.enable = true;
     services.emacs.package = pkgs.emacs-unstable.overrideAttrs (finalAttrs: previousAttrs: {
       withNativeComp = true;
