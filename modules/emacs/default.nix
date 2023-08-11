@@ -45,7 +45,7 @@ in {
         recommendedGcSettings = true;
 
         prelude = let
-          fontSize = if pkgs.stdenv.isDarwin then "15" else "14";
+          fontSize = "13";
           emacsFont = ''
             (when window-system
               (set-frame-font "Nanum Gothic Coding ${fontSize}"))
@@ -166,20 +166,48 @@ in {
             ''; 
           };
 
-          god-mode = {
-            enable = true;
-            config = ''
-              (god-mode)
-              (global-set-key (kbd "<escape>") #'god-mode-all)
-              (setq god-exempt-major-modes nil)
-              (setq god-exempt-predicates nil)
-            '';
-          };
 
           dockerfile-mode = { enable = true; };
 
-          counsel = {
+          vertico = {
             enable = true;
+            config = ''
+              (vertico-mode)
+              (vertico-mouse-mode)
+            '';
+            custom = ''
+              (vertico-count 22)
+            '';
+            
+          };
+
+          consult = {
+            enable = true;
+            config = ''
+              (recentf-mode)
+              (defun tj/yank-pop ()
+                (interactive)
+                (let ((point-before (point)))
+                  (consult-yank-pop)
+                  (indent-region point-before (point))))
+            '';
+            bindStar = {
+              "C-c i" = "consult-imenu";
+              "C-c y" = "tj/yank-pop";
+              "C-c r" = "consult-bookmark";
+              "C-c h" = "consult-ripgrep";
+              "C-h a" = "consult-apropos";
+            };
+            custom = ''
+              (completion-in-region-function #'consult-completion-in-region)
+              (xref-show-xrefs-function #'consult-xref)
+              (xref-show-definitions-function #'consult-xref)
+              (consult-project-root-function #'deadgrep--project-root) ;; ensure ripgrep works
+            '';
+          };
+
+          counsel = {
+            enable = false;
 
             bindStar = {
               "M-x" = "counsel-M-x";
@@ -192,14 +220,6 @@ in {
               "M-y" = "counsel-yank-pop";
             };
 
-            general = ''
-              (general-nmap
-                :prefix "SPC"
-                "SPC" '(counsel-M-x :which-key "M-x")
-                "ff"  '(counsel-find-file :which-key "find file")
-                "s"   '(:ignore t :which-key "search")
-                "sc"  '(counsel-unicode-char :which-key "find character"))
-            '';
           };
 
           cython-mode = { enable = true; };
@@ -244,67 +264,9 @@ in {
             '';
           };
 
-          general = {
-            enable = true;
-            after = [ "which-key" ];
-            config = ''
-
-              (general-create-definer my-leader-def
-                :prefix "SPC")
-
-              (general-create-definer my-local-leader-def
-                :prefix "SPC m")
-
-              (general-nmap
-                :prefix "SPC"
-                "b"  '(:ignore t :which-key "buffer")
-                "bd" '(kill-this-buffer :which-key "kill buffer")
-
-                "f"  '(:ignore t :which-key "file")
-                "ff" '(find-file :which-key "find")
-                "fs" '(save-buffer :which-key "save")
-
-                "m"  '(:ignore t :which-key "mode")
-
-                "t"  '(:ignore t :which-key "toggle")
-                "tf" '(toggle-frame-fullscreen :which-key "fullscreen")
-                "wv" '(split-window-horizontally :which-key "split vertical")
-                "ws" '(split-window-vertically :which-key "split horizontal")
-                "wd" '(delete-window :which-key "delete")
-
-                "q"  '(:ignore t :which-key "quit")
-                "qq" '(save-buffers-kill-emacs :which-key "quit"))
-            '';
-          };
-
-          ivy = {
-            enable = true;
-            demand = true;
-            diminish = [ "ivy-mode" ];
-            config = ''
-              (ivy-mode 1)
-              (setq ivy-use-virtual-buffers t
-                    ivy-hight 20
-                    ivy-count-format "(%d/%d) "
-                    ivy-initial-inputs-alist nil)
-            '';
-            general = ''
-              (general-nmap
-                :prefix "SPC"
-                "bb" '(ivy-switch-buffer :which-key "switch buffer")
-                "fr" '(ivy-recentf :which-key "recent file"))
-            '';
-          };
 
           magit = {
             enable = true;
-
-            general = ''
-              (general-nmap
-                :prefix "SPC"
-                "g" '(:ignore t :which-key "Git")
-                "gs" 'magit-status)
-            '';
           };
 
           markdown-mode = {
@@ -339,22 +301,15 @@ in {
 
           projectile = {
             enable = true;
-            after = [ "ivy" ];
+            after = [ "vertico" ];
             diminish = [ "projectile-mode" ];
             config = ''
               (projectile-mode 1)
               (progn
                 (setq projectile-enable-caching t)
                 (setq projectile-require-project-root nil)
-                (setq projectile-completion-system 'ivy)
+                (setq projectile-completion-system 'default)
                 (add-to-list 'projectile-globally-ignored-files ".DS_Store"))
-            '';
-            general = ''
-              (general-nmap
-                :prefix "SPC"
-                "p"  '(:ignore t :which-key "Project")
-                "pf" '(projectile-find-file :which-key "Find in project")
-                "pl" '(projectile-switch-project :which-key "Switch project"))
             '';
           };
 
@@ -364,12 +319,6 @@ in {
             enable = true;
 
             bindStar = { "C-s" = "swiper"; };
-
-            general = ''
-              (general-nmap
-                :prefix "SPC"
-                "ss" '(swiper :which-key "swiper"))
-            '';
           };
 
           which-key = {
