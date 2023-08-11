@@ -31,11 +31,6 @@ in {
 
     home.file.".emacs.d/lisp/lsp-bridge".source = lsp-bridge;
     
-    services.emacs.enable = true;
-    services.emacs.package = pkgs.emacs-unstable.overrideAttrs (finalAttrs: previousAttrs: {
-      withNativeComp = true;
-      withTreeSitter = true;
-    });
     programs.emacs = {
       enable = true;
       package = pkgs.emacs-unstable.overrideAttrs (finalAttrs: previousAttrs: {
