@@ -174,11 +174,8 @@ in {
             config = ''
               (vertico-mode)
               (vertico-mouse-mode)
-            '';
-            custom = ''
               (vertico-count 22)
             '';
-            
           };
 
           consult = {
@@ -190,6 +187,8 @@ in {
                 (let ((point-before (point)))
                   (consult-yank-pop)
                   (indent-region point-before (point))))
+              (completion-in-region-function #'consult-completion-in-region)                           
+              (xref-show-xrefs-function #'consult-xref)                                                              (xref-show-definitions-function #'consult-xref)                                                        (consult-project-root-function #'deadgrep--project-root) ;; ensure ripgrep works  
             '';
             bindStar = {
               "C-c i" = "consult-imenu";
@@ -198,12 +197,6 @@ in {
               "C-c h" = "consult-ripgrep";
               "C-h a" = "consult-apropos";
             };
-            custom = ''
-              (completion-in-region-function #'consult-completion-in-region)
-              (xref-show-xrefs-function #'consult-xref)
-              (xref-show-definitions-function #'consult-xref)
-              (consult-project-root-function #'deadgrep--project-root) ;; ensure ripgrep works
-            '';
           };
 
           counsel = {
