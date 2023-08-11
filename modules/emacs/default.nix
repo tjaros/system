@@ -29,7 +29,6 @@ in {
 
 
     home.file.".emacs.d/lisp/lsp-bridge".source = lsp-bridge;
-    home.file.".emacs.d/lisp/xah-fly-keys".source = xfk;
     
     programs.emacs = {
       enable = true;
