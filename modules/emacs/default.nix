@@ -174,7 +174,6 @@ in {
             config = ''
               (vertico-mode)
               (vertico-mouse-mode)
-              (vertico-count 22)
             '';
           };
 
