@@ -29,6 +29,7 @@ in {
 
 
     home.file.".emacs.d/lisp/lsp-bridge".source = lsp-bridge;
+    home.file.".emacs.d/lisp/spaceway".source = ./spaceway;
     
     programs.emacs = {
       enable = true;
@@ -127,6 +128,16 @@ in {
             enable = true;
           };
 
+          spaceway-theme = {
+            enable = true;
+            load-path = "~/.emacs.d/lisp/spaceway";
+            config = ''
+              (global-hl-line-mode t)
+              (set-cursor-color "#cdcdcd");;dc32ff
+              (load-theme 'spaceway t)
+            '';
+          };
+
           mood-line = {
             enable = true;
             config = ''
@@ -154,7 +165,7 @@ in {
           };
 
           god-mode = {
-            enable = false;
+            enable = true;
             config = ''
               (god-mode)
               (global-set-key (kbd "<escape>") #'god-mode-all)
@@ -232,7 +243,7 @@ in {
           };
 
           general = {
-            enable = false;
+            enable = true;
             after = [ "which-key" ];
             config = ''
 
@@ -372,7 +383,7 @@ in {
           };
 
           gruvbox-theme = {
-            enable = true;
+            enable = false;
             config = ''
               (setq custom-safe-themes t)
               (add-hook 'after-init-hook (lambda () (load-theme 'gruvbox t)))
