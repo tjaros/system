@@ -24,7 +24,7 @@ in {
         withTreeSitter = true;
       });
 
-      extraPackages =  (epkgs: with epkgs; with pkgs; [
+      extraPackages =  (epkgs: (with epkgs; with pkgs; [
         python311.withPackages (ps: with ps; [
           # The lsp-bridge has some python dependencies and we need
           # them to be present in any devshell which uses python
@@ -36,7 +36,7 @@ in {
         # Language servers
         nil # nix lsp
         nodePackages.pyright # python lsp
-      ]);
+      ]));
 
 
       init = {
