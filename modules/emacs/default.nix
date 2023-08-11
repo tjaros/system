@@ -185,6 +185,10 @@ in {
             enable = true;
           };
 
+          pyvenv = {
+            enable = true;
+          };
+
           flycheck = {
             enable = true;
             diminish = [ "flycheck-mode" ];
