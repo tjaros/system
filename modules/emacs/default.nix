@@ -118,6 +118,37 @@ in {
           (global-lsp-bridge-mode)
           (setq lsp-bridge-nix-lsp-server 'nil)
           (add-hook 'direnv-envrc-mode-hook 'lsp-bridge-restart-process)
+
+
+            (use-package all-the-icons)
+
+            ;;(use-package doom-modeline
+            ;;  :ensure t
+            ;;  :init (doom-modeline-mode 1)
+            ;;  :custom ((doom-modeline-height 15)))
+
+            (defun tj/project-relative-file-name (include-prefix)
+            "Return the project-relative filename, or the full path if INCLUDE-PREFIX is t."
+            (letrec
+            ((fullname (if (equal major-mode 'dired-mode) default-directory (buffer-file-name)))
+            (root (project-root (project-current)))
+            (relname (if fullname (file-relative-name fullname root) fullname))
+            (should-strip (and root (not include-prefix))))
+            (if should-strip relname fullname)))
+
+            (use-package mood-line
+            :config
+            (defun tj/mood-line-segment-project-advice (oldfun)
+            "Advice to use project-relative file names where possible."
+            (let
+            ((project-relative (ignore-errors (tj/project-relative-file-name nil))))
+            (if
+            (and (project-current) (not org-src-mode) project-relative)
+            (propertize (format "%s  " project-relative) 'face 'mood-line-buffer-name)
+            (funcall oldfun))))
+
+            (advice-add 'mood-line-segment-buffer-name :around #'tj/mood-line-segment-project-advice)
+            (mood-line-mode))
         '';
 
         usePackageVerbose = true;
@@ -129,6 +160,10 @@ in {
             config = ''
               (company-mode)
             '';
+          };
+
+          god-mode = {
+            enable = true;
           };
 
           dockerfile-mode = { enable = true; };
@@ -200,7 +235,7 @@ in {
           };
 
           general = {
-            enable = true;
+            enable = false;
             after = [ "which-key" ];
             config = ''
 
