@@ -16,7 +16,7 @@
   services = {
     xserver = {
       enable = true;
-      videoDrivers = ["nvidia"];
+      videoDrivers = ["nvidia" "intel"];
       windowManager.dwm.enable = true;
       displayManager.sddm.enable = true;
       layout = "us";
