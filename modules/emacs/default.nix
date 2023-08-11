@@ -126,7 +126,7 @@ in {
 
 
           (add-to-list 'load-path "~/.emacs.d/lisp/xah-fly-keys")
-          (reqire 'xah-fly-keys)
+          (require 'xah-fly-keys)
           (xah-fly-keys-set-layout "dvorak")
           (xah-fly-keys 1) 
         '';
