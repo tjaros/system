@@ -8,10 +8,6 @@ let
     url = "https://github.com/manateelazycat/lsp-bridge.git";
     rev = "d7dbd6ffca0d79493e084895d30df265453e21c9";
   };
-  xfk = builtins.fetchGit {
-    url = "https://github.com/xahlee/xah-fly-keys.git";
-    rev = "5b566d51c78d0662f21b14752e71d2ab59775d96";
-  };
   python = pkgs.python311.withPackages (ps: with ps; [
     epc
     orjson
@@ -52,7 +48,7 @@ in {
           fontSize = if pkgs.stdenv.isDarwin then "15" else "14";
           emacsFont = ''
             (when window-system
-              (set-frame-font "Hasklig ${fontSize}"))
+              (set-frame-font "Nanum Gothic Coding ${fontSize}"))
           '';
         in emacsFont + ''
           (require 'bind-key)
@@ -123,12 +119,6 @@ in {
           (global-lsp-bridge-mode)
           (setq lsp-bridge-nix-lsp-server 'nil)
           (add-hook 'direnv-envrc-mode-hook 'lsp-bridge-restart-process)
-
-
-          (add-to-list 'load-path "~/.emacs.d/lisp/xah-fly-keys")
-          (require 'xah-fly-keys)
-          (xah-fly-keys-set-layout "dvorak")
-          (xah-fly-keys 1) 
         '';
 
         usePackageVerbose = true;
@@ -162,14 +152,6 @@ in {
               (advice-add 'mood-line-segment-buffer-name :around #'tj/mood-line-segment-project-advice)
               (mood-line-mode)
             ''; 
-          };
-
-          company = {
-            enable = false;
-            diminish = [ "company-mode" ];
-            config = ''
-              (company-mode)
-            '';
           };
 
           god-mode = {
@@ -251,7 +233,7 @@ in {
           };
 
           general = {
-            enable = true;
+            enable = false;
             after = [ "which-key" ];
             config = ''
 
