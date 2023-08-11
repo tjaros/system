@@ -119,6 +119,18 @@ in {
           (global-lsp-bridge-mode)
           (setq lsp-bridge-nix-lsp-server 'nil)
           (add-hook 'direnv-envrc-mode-hook 'lsp-bridge-restart-process)
+
+          (use-package spaceway-theme
+            :ensure nil
+            :load-path "~/.emacs.d/lisp/spaceway/"
+            :config
+            (global-hl-line-mode t)
+            (set-cursor-color "#cdcdcd");;dc32ff
+            ;; (when my/my-system
+            ;;   (set-frame-parameter (selected-frame) 'alpha '(90 90))
+            ;;   (add-to-list 'default-frame-alist '(alpha 90 90)))
+            (load-theme 'spaceway t))
+          
         '';
 
         usePackageVerbose = true;
@@ -126,16 +138,6 @@ in {
         usePackage = {
           all-the-icons = {
             enable = true;
-          };
-
-          spaceway-theme = {
-            enable = true;
-            load-path = "~/.emacs.d/lisp/spaceway";
-            config = ''
-              (global-hl-line-mode t)
-              (set-cursor-color "#cdcdcd");;dc32ff
-              (load-theme 'spaceway t)
-            '';
           };
 
           mood-line = {
