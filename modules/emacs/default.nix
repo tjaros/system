@@ -14,20 +14,6 @@ in {
   
   config = mkIf cfg.enable {
 
-    # Dependencies
-    home.packages = with pkgs; [
-      python311.withPackages (ps: with ps; [
-        # The lsp-bridge has some python dependencies and we need
-        # them to be present in any devshell which uses python
-        epc
-        orjson
-        sexpdata
-        paramiko
-      ])
-      # Language servers
-      nil # nix lsp
-      nodePackages.pyright # python lsp
-    ];
 
     home.file.".emacs.d/lisp/lsp-bridge".source = lsp-bridge;
     
@@ -37,6 +23,21 @@ in {
         withNativeComp = true;
         withTreeSitter = true;
       });
+
+      extraPackages =  with pkgs; [
+        python311.withPackages (ps: with ps; [
+          # The lsp-bridge has some python dependencies and we need
+          # them to be present in any devshell which uses python
+          epc
+          orjson
+          sexpdata
+          paramiko
+        ])
+        # Language servers
+        nil # nix lsp
+        nodePackages.pyright # python lsp
+      ];
+
 
       init = {
         enable = true;
