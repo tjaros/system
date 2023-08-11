@@ -8,6 +8,10 @@ let
     url = "https://github.com/manateelazycat/lsp-bridge.git";
     rev = "d7dbd6ffca0d79493e084895d30df265453e21c9";
   };
+  xfk = builtins.fetchGit {
+    url = "https://github.com/xahlee/xah-fly-keys.git";
+    rev = "5b566d51c78d0662f21b14752e71d2ab59775d96";
+  };
   python = pkgs.python311.withPackages (ps: with ps; [
     epc
     orjson
@@ -29,6 +33,7 @@ in {
 
 
     home.file.".emacs.d/lisp/lsp-bridge".source = lsp-bridge;
+    home.file.".emacs.d/lisp/xah-fly-keys".source = xfk;
     
     programs.emacs = {
       enable = true;
@@ -47,7 +52,7 @@ in {
           fontSize = if pkgs.stdenv.isDarwin then "15" else "14";
           emacsFont = ''
             (when window-system
-              (set-frame-font "Unifont ${fontSize}"))
+              (set-frame-font "Hasklig ${fontSize}"))
           '';
         in emacsFont + ''
           (require 'bind-key)
@@ -120,7 +125,10 @@ in {
           (add-hook 'direnv-envrc-mode-hook 'lsp-bridge-restart-process)
 
 
-          
+          (add-to-list 'load-path "~/.emacs.d/lisp/xah-fly-keys")
+          (reqire 'xah-fly-keys)
+          (xah-fly-keys-set-layout "dvorak")
+          (xah-fly-keys 1) 
         '';
 
         usePackageVerbose = true;
@@ -165,7 +173,7 @@ in {
           };
 
           god-mode = {
-            enable = true;
+            enable = false;
             config = ''
               (god-mode)
               (global-set-key (kbd "<escape>") #'god-mode-all)
