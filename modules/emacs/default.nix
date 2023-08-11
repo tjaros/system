@@ -107,6 +107,7 @@ in {
           (add-to-list 'load-path "~/.emacs.d/lisp/lsp-bridge")
           (require 'lsp-bridge)
           (global-lsp-bridge-mode)
+          (setq lsp-bridge-nix-lsp-server 'nil)
           (add-hook 'direnv-envrc-mode-hook 'lsp-bridge-restart-process)
         '';
 
