@@ -29,7 +29,7 @@
 
   modules.emacs.enable = true;
 
-  home.packages = ( epkgs : with epkgs; with pkgs; [ 
+  home.packages = with pkgs; [ 
     spotify
     lutris
     wine
@@ -43,7 +43,7 @@
     xivlauncher
     zoom-us
     transmission-qt
-  ]);
+  ];
 
   programs.home-manager.enable = true;
   programs.git.enable = true;
