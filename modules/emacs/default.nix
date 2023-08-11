@@ -8,11 +8,24 @@ let
     url = "https://github.com/manateelazycat/lsp-bridge.git";
     rev = "d7dbd6ffca0d79493e084895d30df265453e21c9";
   };
+  python = pkgs.python311.withPackages (ps: with ps; [
+    epc
+    orjson
+    sexpdata
+    paramiko
+  ]);
 in {
   options.modules.emacs.enable = mkEnableOption "emacs without spacemacs support";
   imports = [ ./emacs-init.nix ];
   
   config = mkIf cfg.enable {
+
+    home.packages = with pkgs; [
+      python
+      # language servers
+      nil
+      nodePackages.pyright
+    ];
 
 
     home.file.".emacs.d/lisp/lsp-bridge".source = lsp-bridge;
@@ -23,20 +36,6 @@ in {
         withNativeComp = true;
         withTreeSitter = true;
       });
-
-      extraPackages =  (epkgs: (with epkgs; with pkgs; [
-        python311.withPackages (ps: with ps; [
-          # The lsp-bridge has some python dependencies and we need
-          # them to be present in any devshell which uses python
-          epc
-          orjson
-          sexpdata
-          paramiko
-        ])
-        # Language servers
-        nil # nix lsp
-        nodePackages.pyright # python lsp
-      ]));
 
 
       init = {
