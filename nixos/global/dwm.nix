@@ -17,8 +17,8 @@
     xserver = {
       enable = true;
       videoDrivers = ["nvidia"];
-      windowManager.sddm.enable = true;
-      displayManager.lightdm.enable = true;
+      windowManager.dwm.enable = true;
+      displayManager.sddm.enable = true;
       layout = "us";
     };
   };
