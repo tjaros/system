@@ -37,7 +37,7 @@
     runelite
     gtkwave
     verilog
-    Discord
+    discord
     Steam
     protonup-qt
     vscode
