@@ -38,7 +38,7 @@
     gtkwave
     verilog
     discord
-    Steam
+    steam
     protonup-qt
     vscode
     quartus-prime-lite
