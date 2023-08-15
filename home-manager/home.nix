@@ -34,9 +34,11 @@
     lutris
     wine
     winetricks
-    runelite
-    discord
-    steam
+    runelit
+    gtkwave
+    verilog
+    Discord
+    Steam
     protonup-qt
     vscode
     quartus-prime-lite
