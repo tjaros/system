@@ -34,7 +34,7 @@
     lutris
     wine
     winetricks
-    runelit
+    runelite
     gtkwave
     verilog
     Discord
