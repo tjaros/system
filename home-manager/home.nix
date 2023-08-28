@@ -31,6 +31,8 @@
 
   home.packages = with pkgs; [ 
     spotify
+    unrar
+    unzip
     lutris
     wine
     winetricks
