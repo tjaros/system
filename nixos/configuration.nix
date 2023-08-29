@@ -8,16 +8,7 @@
         dwm = super.dwm.overrideAttrs (oldattrs: {
           src = fetchGit {
             url = "https://github.com/tjaros/dwm.git";
-            rev = "a2db2f6146eb00ae674ed76701442d14d04ddfcc";
-          }; 
-        });
-      })
-
-      (self: super: {
-        dwmbar = super.dwmbar.overrideAttrs (oldattrs: {
-          src = fetchGit {
-            url = "https://github.com/tjaros/dwmbar.git";
-            rev = "f1126289134deb24e62193276068cfbb18c5789b";
+            rev = "17e694ba08e6571f7ee19df15a2630e1995a0ebd";
           }; 
         });
       })
