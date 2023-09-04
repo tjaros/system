@@ -32,6 +32,7 @@
   home.packages = with pkgs; [ 
     spotify
     networkmanager-openvpn
+    openvpn
     unrar
     unzip
     lutris
