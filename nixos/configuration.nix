@@ -27,6 +27,7 @@
       ./global/misc.nix
       ./global/nvidia.nix
       ./global/pipewire.nix
+      ./global/udev.nix
       ./hardware-configuration.nix
       ./users/tjaros
     ];
