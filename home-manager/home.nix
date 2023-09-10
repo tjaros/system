@@ -46,7 +46,15 @@
     protonup-qt
     vscode
     quartus-prime-lite
-    xivlauncher
+    libpng12
+    bzip2
+    expat
+    libdrm
+    xorg.libICE
+    xorg.libX11
+    xorg.libXau
+    zlib
+    
     zoom-us
     transmission-qt
   ];
