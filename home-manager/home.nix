@@ -45,6 +45,7 @@
     steam
     protonup-qt
     vscode
+    
     quartus-prime-lite
     libpng12
     bzip2
@@ -54,6 +55,17 @@
     xorg.libX11
     xorg.libXau
     zlib
+    eclipses.eclipse-sdk
+    eclipses.eclipse-scala-sdk
+    eclipses.eclipse-rcp
+    eclipses.eclipse-platform
+    eclipses.eclipse-modeling
+    eclipses.eclipse-jee
+    eclipses.eclipse-java
+    eclipses.eclipse-cpp
+    eclipses.eclipse-committers
+    
+    
     
     zoom-us
     transmission-qt
