@@ -56,7 +56,7 @@
     xorg.libXau
     zlib
     eclipses.eclipse-sdk
-    eclipses.eclipse-cpp
+    #eclipses.eclipse-cpp
 
     
     
