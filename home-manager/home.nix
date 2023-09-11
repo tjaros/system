@@ -46,7 +46,6 @@
     protonup-qt
     vscode
 
-    docker
     distrobox
     
     
