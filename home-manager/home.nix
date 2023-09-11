@@ -45,16 +45,8 @@
     steam
     protonup-qt
     vscode
-    
-    libpng12
-    bzip2
-    expat
-    libdrm
-    xorg.libICE
-    xorg.libX11
-    xorg.libXau
-    zlib
 
+    docker
     
     
     
