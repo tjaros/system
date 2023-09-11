@@ -4,7 +4,7 @@
   users.users.tjaros = {
     isNormalUser = true;
     description = "Tom";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
     shell = pkgs.fish;
   };
 
