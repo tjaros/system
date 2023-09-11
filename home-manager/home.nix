@@ -55,11 +55,9 @@
     xorg.libX11
     xorg.libXau
     zlib
-    eclipses.eclipse-rcp
-    eclipses.eclipse-platform
-    eclipses.eclipse-modeling
+    eclipses.eclipse-sdk
     eclipses.eclipse-cpp
-    eclipses.eclipse-committers
+
     
     
     
