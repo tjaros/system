@@ -46,7 +46,6 @@
     protonup-qt
     vscode
     
-    quartus-prime-lite
     libpng12
     bzip2
     expat
