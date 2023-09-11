@@ -47,6 +47,7 @@
     vscode
 
     docker
+    distrobox
     
     
     
