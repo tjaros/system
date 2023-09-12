@@ -6,6 +6,7 @@
     kitty
     gnome.gnome-tweaks
     gnome.zenity
+    xorg.xhost
   ];
 
   services = {
