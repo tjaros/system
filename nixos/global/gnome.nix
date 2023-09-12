@@ -5,6 +5,7 @@
     gnomeExtensions.appindicator
     kitty
     gnome.gnome-tweaks
+    gnome.zenity
   ];
 
   services = {
