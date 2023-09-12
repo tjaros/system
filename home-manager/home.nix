@@ -45,6 +45,7 @@
     steam
     protonup-qt
     vscode
+    gnumake
 
     distrobox
     
