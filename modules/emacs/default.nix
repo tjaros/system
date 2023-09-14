@@ -227,8 +227,8 @@ in {
 
           orderless = {
             enable = true;
-            custom = ''
-              (completion-styles '(orderless))
+            config = ''
+              (setq completion-styles '(orderless))
             '';
           };
 
