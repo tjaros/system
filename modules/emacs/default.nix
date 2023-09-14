@@ -187,7 +187,9 @@ in {
                   (consult-yank-pop)
                   (indent-region point-before (point))))
               (completion-in-region-function #'consult-completion-in-region)                           
-              (xref-show-xrefs-function #'consult-xref)                                                              (xref-show-definitions-function #'consult-xref)                                                        (consult-project-root-function #'deadgrep--project-root) ;; ensure ripgrep works  
+              (xref-show-xrefs-function #'consult-xref)
+              (xref-show-definitions-function #'consult-xref)
+              (consult-project-root-function #'deadgrep--project-root) ;; ensure ripgrep works  
             '';
             bindStar = {
               "C-c i" = "consult-imenu";
@@ -212,6 +214,22 @@ in {
               "M-y" = "counsel-yank-pop";
             };
 
+          };
+
+          marginalia = {
+            enable = true;
+            after = [ "vertico" ];
+            config = ''
+              (marginalia-mode)
+            '';
+            
+          };
+
+          orderless = {
+            enable = true;
+            custom = ''
+              (completion-styles '(orderless))
+            '';
           };
 
           cython-mode = { enable = true; };
