@@ -19,7 +19,7 @@
     [
       inputs.home-manager.nixosModules.home-manager
       ./desktop
-      ./global/gnome.nix
+      ./global/dwm.nix
       ./global/fish.nix
       ./global/fonts.nix
       ./global/keybase.nix
