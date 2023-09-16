@@ -46,6 +46,7 @@
     protonup-qt
     vscode
     gnumake
+    protontricks
 
     distrobox
     
