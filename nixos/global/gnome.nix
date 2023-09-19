@@ -8,6 +8,9 @@
     gnome.gnome-tweaks
     gnome.zenity
     xorg.xhost
+    xorg.xmodmap
+    xorg.xev
+
   ];
 
   services = {
