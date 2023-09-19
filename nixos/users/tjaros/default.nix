@@ -4,7 +4,7 @@
   users.users.tjaros = {
     isNormalUser = true;
     description = "Tom";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "docker" "chipwhisperer" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "docker" "chipwhisperer" "libvirtd" ];
     shell = pkgs.fish;
   };
 

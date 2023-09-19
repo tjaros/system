@@ -27,6 +27,13 @@
     homeDirectory = "/home/tjaros";
   };
 
+  dconf.settings = {
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
+      };
+  };
+
   modules.emacs.enable = true;
 
   home.packages = with pkgs; [ 
