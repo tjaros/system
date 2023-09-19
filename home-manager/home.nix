@@ -60,6 +60,7 @@
     R
     rPackages.dplyr
     rPackages.ggplot2
+    rPackages.tidyr
     rPackages.tidyverse
     rstudio
     
