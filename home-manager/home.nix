@@ -57,7 +57,10 @@
 
     distrobox
     
-    R 
+    R
+    rPackages.dplyr
+    rPackages.ggplot2
+    rPackages.tidyverse
     rstudio
     
     
