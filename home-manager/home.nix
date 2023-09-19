@@ -57,6 +57,9 @@
 
     distrobox
     
+    R 
+    rstudio
+    
     
     
     zoom-us
