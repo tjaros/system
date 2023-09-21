@@ -54,6 +54,7 @@
     vscode
     gnumake
     protontricks
+    obsidian
 
     distrobox
     
