@@ -28,7 +28,8 @@
       ./global/nvidia.nix
       ./global/pipewire.nix
       ./global/udev.nix
-      ./global/virtualization.nix      
+      ./global/virtualization.nix
+      ./global/development.nix
       ./hardware-configuration.nix
       ./users/tjaros
     ];
