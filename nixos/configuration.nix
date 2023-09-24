@@ -1,23 +1,9 @@
 { inputs, outputs, config, pkgs, lib, ... }:
 
 
-let
-  unstableTarball = fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
-    sha256 = "1zfbr3igf88mcm6hjpdij4dbw2nnaayb36p0dc9q6jnj3zfhsn96";
-  };
-in
 {
 
   nixpkgs = {
-    config = {
-      packageOverrides = pkgs: {
-        unstable = import unstableTarball {
-          config = config.nixpkgs.config;
-        };
-      };
-    };
-    
     overlays  = [
       (self: super: {
         dwm = super.dwm.overrideAttrs (oldattrs: {
