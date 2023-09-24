@@ -1,15 +1,11 @@
 { inputs, outputs, config, pkgs, lib, ... }:
 
-
-let
-  unstableTarball = fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
-in
 {
 
   nixpkgs = {
     config = {
       packageOverrides = pkgs: with pkgs; {
-        unstable = import unstableTarball {
+        unstable = import <nixpkgs-unstable> {
           config = config.nixpkgs.config;
         };
       };
