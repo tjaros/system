@@ -28,7 +28,7 @@
       ./global/misc.nix
       ./global/nvidia.nix
       ./global/pipewire.nix
-      #./global/udev.nix
+      ./global/udev.nix
       ./global/virtualization.nix
       ./global/development.nix
       ./hardware-configuration.nix
