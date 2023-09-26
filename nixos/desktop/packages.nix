@@ -12,7 +12,7 @@
     unzip
     direnv
     nix-direnv
-    firefox
+    brave
     keybase
     keybase-gui
     thunderbird
