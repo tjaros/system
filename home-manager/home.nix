@@ -48,6 +48,7 @@
     runelite
     gtkwave
     verilog
+    libreoffice
     discord
     steam
     protonup-qt
