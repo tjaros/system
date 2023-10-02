@@ -48,6 +48,7 @@
     runelite
     gtkwave
     verilog
+    skypeforlinux
     libreoffice
     discord
     steam
