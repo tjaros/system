@@ -49,6 +49,7 @@
     gtkwave
     verilog
     skypeforlinux
+    chromium
     libreoffice
     discord
     steam
