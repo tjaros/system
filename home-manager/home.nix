@@ -50,6 +50,7 @@
     verilog
     skypeforlinux
     chromium
+    autokey
     libreoffice
     discord
     steam
