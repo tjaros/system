@@ -60,6 +60,7 @@
     gnumake
     protontricks
     obsidian
+    moonlight-qt
 
     distrobox
     
