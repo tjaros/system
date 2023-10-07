@@ -51,6 +51,7 @@
     skypeforlinux
     chromium
     autokey
+    bottles
     libreoffice
     discord
     steam
