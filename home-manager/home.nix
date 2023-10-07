@@ -59,9 +59,6 @@
     gnumake
     protontricks
     obsidian
-    fuse
-    gtk3
-    qt6.full
     distrobox
     
     R
