@@ -51,7 +51,7 @@
     skypeforlinux
     chromium
     autokey
-    parsec-bin
+    moonlight-embedded
     libreoffice
     discord
     steam
