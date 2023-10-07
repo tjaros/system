@@ -51,7 +51,6 @@
     skypeforlinux
     chromium
     autokey
-    moonlight-embedded
     libreoffice
     discord
     steam
