@@ -60,7 +60,6 @@
     protontricks
     obsidian
     fuse
-    gtk2
     gtk3
     qt4
     qt6.full
