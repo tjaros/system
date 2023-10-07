@@ -59,8 +59,8 @@
     gnumake
     protontricks
     obsidian
-    moonlight-qt
-
+    flatpak
+    fuse
     distrobox
     
     R
