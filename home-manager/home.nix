@@ -61,7 +61,6 @@
     obsidian
     fuse
     gtk3
-    qt4
     qt6.full
     distrobox
     
