@@ -51,7 +51,7 @@
     skypeforlinux
     chromium
     autokey
-    bottles
+    parsec-bin
     libreoffice
     discord
     steam
