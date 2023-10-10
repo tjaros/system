@@ -46,8 +46,6 @@
     wine
     winetricks
     runelite
-    gtkwave
-    verilog
     skypeforlinux
     chromium
     autokey
@@ -55,13 +53,10 @@
     discord
     antimicro
     steam
-    protonup-qt
     vscode
-    moonlight-embedded
     gnumake
     protontricks
     obsidian
-    distrobox
     
     R
     rstudio
