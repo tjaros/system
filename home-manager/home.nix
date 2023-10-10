@@ -51,7 +51,7 @@
     autokey
     libreoffice
     discord
-    antimicro
+    antimicrox
     steam
     vscode
     gnumake
