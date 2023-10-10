@@ -53,9 +53,11 @@
     autokey
     libreoffice
     discord
+    antimicro
     steam
     protonup-qt
     vscode
+    moonlight-embedded
     gnumake
     protontricks
     obsidian
