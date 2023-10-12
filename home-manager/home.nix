@@ -52,6 +52,7 @@
     libreoffice
     discord
     antimicrox
+    distrobox
     steam
     vscode
     gnumake
