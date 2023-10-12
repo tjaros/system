@@ -51,6 +51,7 @@
     autokey
     libreoffice
     discord
+    graphviz
     antimicrox
     distrobox
     steam
