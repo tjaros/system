@@ -52,6 +52,7 @@
     libreoffice
     discord
     graphviz
+    inkscape
     antimicrox
     distrobox
     steam
