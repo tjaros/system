@@ -38,7 +38,7 @@
 
   home.packages = with pkgs; [
     python
-    pip
+    python.pip
     
     spotify
     networkmanager-openvpn
