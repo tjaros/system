@@ -36,7 +36,10 @@
 
   modules.emacs.enable = true;
 
-  home.packages = with pkgs; [ 
+  home.packages = with pkgs; [
+    python
+    pip
+    
     spotify
     networkmanager-openvpn
     openvpn
