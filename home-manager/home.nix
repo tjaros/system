@@ -53,6 +53,7 @@
     discord
     graphviz
     inkscape
+    teams
     antimicrox
     distrobox
     steam
