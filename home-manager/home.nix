@@ -42,8 +42,6 @@
       virtualenv
     ]))
 
-
-    libusb1
     
     spotify
     networkmanager-openvpn
