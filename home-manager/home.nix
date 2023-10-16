@@ -43,7 +43,8 @@
     ]))
 
 
-    libusb
+    libusb1
+    
     spotify
     networkmanager-openvpn
     openvpn
