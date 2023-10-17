@@ -13,6 +13,9 @@
     direnv
     nix-direnv
     brave
+    pkg-config
+    cmake
+    gcc
     keybase
     keybase-gui
     thunderbird
