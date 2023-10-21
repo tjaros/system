@@ -57,6 +57,7 @@
     autokey
     libreoffice
     discord
+    ghidra-bin
     graphviz
     inkscape
     teams
