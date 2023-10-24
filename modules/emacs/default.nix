@@ -22,7 +22,8 @@ in {
 
     home.packages = with pkgs; [
       # python
-      # language servers 
+      # language servers
+      llvmPackages_9.clang-unwrapped
       nil
       nodePackages.pyright
     ];
