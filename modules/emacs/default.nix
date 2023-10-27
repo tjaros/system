@@ -41,10 +41,10 @@ in {
         recommendedGcSettings = true;
 
         prelude = let
-          fontSize = "13";
+          fontSize = "15";
           emacsFont = ''
             (when window-system
-              (set-frame-font "Nanum Gothic Coding ${fontSize}"))
+              (set-frame-font "Hasklig ${fontSize}"))
           '';
         in emacsFont + ''
           (require 'bind-key)
