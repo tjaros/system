@@ -41,7 +41,7 @@ in {
         recommendedGcSettings = true;
 
         prelude = let
-          fontSize = "15";
+          fontSize = "16";
           emacsFont = ''
             (when window-system
               (set-frame-font "Hasklig ${fontSize}"))
