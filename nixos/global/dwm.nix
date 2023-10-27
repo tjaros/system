@@ -11,6 +11,7 @@
     nitrogen
     acpi
     xorg.xbacklight
+    xorg.xmodmap
   ];
 
   services = {
