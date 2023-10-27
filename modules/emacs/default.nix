@@ -8,12 +8,7 @@ let
     url = "https://github.com/manateelazycat/lsp-bridge.git";
     rev = "d7dbd6ffca0d79493e084895d30df265453e21c9";
   };
-  python = pkgs.python311.withPackages (ps: with ps; [
-    epc
-    orjson
-    sexpdata
-    paramiko
-  ]);
+
 in {
   options.modules.emacs.enable = mkEnableOption "emacs without spacemacs support";
   imports = [ ./emacs-init.nix ];

@@ -40,6 +40,11 @@
     (python311.withPackages(ps: with ps; [
       pip
       virtualenv
+
+      epc
+      orjson
+      sexpdata
+      paramiko
     ]))
 
     
