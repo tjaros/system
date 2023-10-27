@@ -10,6 +10,7 @@
     xorg.xhost
     xorg.xmodmap
     xorg.xev
+    xprop
 
   ];
 
