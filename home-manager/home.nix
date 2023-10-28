@@ -60,6 +60,7 @@
     skypeforlinux
     chromium
     autokey
+    flatpak
     libreoffice
     discord
     ghidra-bin
