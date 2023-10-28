@@ -113,6 +113,9 @@ in {
           (require 'lsp-bridge)
           (global-lsp-bridge-mode)
           (setq lsp-bridge-nix-lsp-server 'nil)
+          (setq lsp-bridge-c-lsp-server 'ccls)
+
+
           (add-hook 'direnv-envrc-mode-hook 'lsp-bridge-restart-process)
 
           (use-package spaceway-theme
