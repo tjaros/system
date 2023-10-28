@@ -16,9 +16,8 @@ in {
   config = mkIf cfg.enable {
 
     home.packages = with pkgs; [
-      # python
       # language servers
-      llvmPackages_9.clang-polly-unwrapped
+      ccls
       nil
       nodePackages.pyright
     ];
