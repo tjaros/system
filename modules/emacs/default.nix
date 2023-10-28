@@ -18,7 +18,7 @@ in {
     home.packages = with pkgs; [
       # python
       # language servers
-      llvmPackages_9.clang-unwrapped
+      llvmPackages_9.clang-polly-unwrapped
       nil
       nodePackages.pyright
     ];
