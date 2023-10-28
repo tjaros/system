@@ -6,7 +6,7 @@ let
   cfg = config.modules.emacs;
   lsp-bridge = builtins.fetchGit {
     url = "https://github.com/manateelazycat/lsp-bridge.git";
-    rev = "d7dbd6ffca0d79493e084895d30df265453e21c9";
+    rev = "4e751899c49f83b0bd03b2f564972fbca839137b";
   };
 
 in {
