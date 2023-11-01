@@ -56,6 +56,7 @@
     lutris
     wine
     winetricks
+    gimp
     runelite
     skypeforlinux
     chromium
