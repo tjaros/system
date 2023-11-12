@@ -21,5 +21,6 @@
     thunderbird
     keepassxc
     wget
+    usbutils
   ];
 }
