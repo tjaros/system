@@ -73,6 +73,7 @@
     steam
     vscode
     gnumake
+    llvmPackages_9.clang-unwrapped
     protontricks
     obsidian
     
