@@ -5,6 +5,11 @@
     theme-sh
     pavucontrol
     neovim
+    ripgrep
+    nodejs_20
+    rustup
+    cargo
+    lazygit
     networkmanagerapplet
     mpv
     wl-clipboard    
