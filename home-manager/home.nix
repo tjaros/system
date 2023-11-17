@@ -76,6 +76,8 @@
     llvmPackages_9.clang-unwrapped
     protontricks
     obsidian
+    black
+    pylint
     
     R
     rstudio
