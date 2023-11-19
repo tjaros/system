@@ -84,9 +84,6 @@
     R
     rstudio
     
-    
-    
-    unstable.zoom-us
     transmission-qt
   ];
 
