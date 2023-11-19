@@ -5,6 +5,9 @@
 
   nixpkgs = {
     overlays  = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
       (self: super: {
         dwm = super.dwm.overrideAttrs (oldattrs: {
           src = fetchGit {
@@ -14,11 +17,14 @@
         });
       })
     ];
+
+    config = {
+      allowUnfree = true;
+    };
   };
 
   imports =
     [
-      inputs.home-manager.nixosModules.home-manager
       ./desktop
       ./global/dwm.nix
       ./global/fish.nix
@@ -52,38 +58,6 @@
     hostName = "astora";
     networkmanager.enable = true;
   };
-
-
-  #xdg.portal = {
-  #  enable = true;
-  #  extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  #};
-
-  home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
-    users = {
-      tjaros = import ../home-manager/home.nix;
-    };
-  };
-
-  virtualisation = {
-    podman = {
-      enable = true;
-
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      dockerCompat = true;
-
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
-      # For Nixos version > 22.11
-      #defaultNetwork.settings = {
-      #  dns_enabled = true;
-      #};
-    };
-  };
-
-
-  nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

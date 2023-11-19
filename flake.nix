@@ -11,8 +11,9 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
     let
+      inherit (self) outputs;
       system = "x86_64-linux";
     in {
 
@@ -25,6 +26,17 @@
         # > Our main nixos configuration file <
         modules = [
           ./nixos/configuration.nix
+        ];
+      };
+    };
+
+    homeConfigurations = {
+      "tjaros@astora" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main home-manager configuration file <
+          ./home-manager/home.nix
         ];
       };
     };
