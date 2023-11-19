@@ -21,7 +21,7 @@
     # Available through 'nixos-rebuild --flake ~/system/#astora'
     nixosConfigurations = {
       astora = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+        specialArgs = { inherit inputs outputs; }; # Pass flake inputs to our config
         # > Our main nixos configuration file <
         modules = [
           ./nixos/configuration.nix
