@@ -14,13 +14,9 @@
   outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
-      overlay-unstable = final: prev: {
-        unstable = import nixpkgs-unstable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      };
     in {
+
+    overlays = import ./overlays { inherit inputs; };
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake ~/system/#astora'
     nixosConfigurations = {
@@ -28,6 +24,7 @@
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         # > Our main nixos configuration file <
         modules = [
+          
           ({ config, pkgs, ...}: { nixpkgs.overlays = [ overlay-unstable ]; })
           ./nixos/configuration.nix
         ];

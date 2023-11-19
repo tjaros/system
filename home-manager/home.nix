@@ -47,9 +47,6 @@
       paramiko
     ]))
 
-    unstable.lunarvim
-
-    
     spotify
     networkmanager-openvpn
     openvpn
