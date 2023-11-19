@@ -3,7 +3,7 @@
 with lib;
 
 let
-  cfg = config.modules.emacs;
+  cfg = config.modules.neovim;
 
 in {
   options.modules.neovim.enable = mkEnableOption "neovim config without lazy nvim";
