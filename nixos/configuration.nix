@@ -40,6 +40,10 @@
       ./hardware-configuration.nix
       ./users/tjaros
     ];
+  
+  environment.systemPackages = with pkgs; [
+    home-manager
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
