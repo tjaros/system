@@ -28,6 +28,5 @@ in {
       vimdiffAlias = true;
     };
 
-    home.file
   };
 }
