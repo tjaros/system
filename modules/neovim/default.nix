@@ -6,7 +6,7 @@ let
   cfg = config.modules.neovim;
   astro-nvim = builtins.fetchGit {
     url = "https://github.com/AstroNvim/AstroNvim";
-    ref = "refs/tags/v3.38.0";
+    rev = "5ca63145b169a7f7fe751b2b310233e5066ea4a6";
   };
 in {
   options.modules.neovim.enable = mkEnableOption "neovim config without lazy nvim";
