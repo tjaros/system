@@ -6,7 +6,6 @@
     pavucontrol
     gcc-arm-embedded
     bear
-    neovim
     ripgrep
     nodejs_20
     rustup
