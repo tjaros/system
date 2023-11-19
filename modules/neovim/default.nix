@@ -4,9 +4,9 @@ with lib;
 
 let
   cfg = config.modules.neovim;
-  astro-nvim = builtins.fetchGit {
-    url = "https://github.com/AstroNvim/AstroNvim";
-    rev = "5ca63145b169a7f7fe751b2b310233e5066ea4a6";
+  neovim-config = builtins.fetchGit {
+    url = "https://github.com/tjaros/neovim-config.git";
+    rev = "7521832d84f0d3875255afee4e7eefeab474d645";
   };
 in {
   options.modules.neovim.enable = mkEnableOption "neovim config without lazy nvim";
@@ -18,7 +18,7 @@ in {
       gdu
     ];
 
-    home.file.".config/nvim".source = astro-nvim;
+    home.file.".config/nvim".source = neovim-config;
 
     programs.neovim = {
       enable = true;
