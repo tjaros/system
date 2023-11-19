@@ -70,7 +70,6 @@
     ghidra-bin
     graphviz
     inkscape
-    teams
     antimicrox
     distrobox
     steam
