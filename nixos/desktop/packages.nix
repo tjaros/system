@@ -10,7 +10,6 @@
     nodejs_20
     rustup
     cargo
-    lazygit
     networkmanagerapplet
     mpv
     wl-clipboard    
