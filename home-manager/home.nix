@@ -35,7 +35,6 @@
   };
 
   modules.emacs.enable = false;
-  modules.neovim.enable = true;
 
   home.packages = with pkgs; [
     (python311.withPackages(ps: with ps; [
@@ -47,6 +46,8 @@
       sexpdata
       paramiko
     ]))
+
+    unstable.lunarvim
 
     
     spotify
