@@ -86,7 +86,7 @@
     
     
     
-    zoom-us
+    unstable.zoom-us
     transmission-qt
   ];
 
