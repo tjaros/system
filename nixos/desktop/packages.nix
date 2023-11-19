@@ -4,6 +4,8 @@
   environment.systemPackages = with pkgs; [
     theme-sh
     pavucontrol
+    gcc-arm-embedded
+    bear
     neovim
     ripgrep
     nodejs_20
