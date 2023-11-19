@@ -51,6 +51,7 @@
     ]))
     
     unstable.lunarvim
+    unstable.helix
     spotify
     networkmanager-openvpn
     openvpn
