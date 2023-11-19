@@ -24,8 +24,6 @@
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         # > Our main nixos configuration file <
         modules = [
-          
-          ({ config, pkgs, ...}: { nixpkgs.overlays = [ overlay-unstable ]; })
           ./nixos/configuration.nix
         ];
       };
