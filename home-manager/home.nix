@@ -77,7 +77,6 @@
     gnumake
     llvmPackages_9.clang-unwrapped
     protontricks
-    #obsidian
     black
     pylint
     
@@ -86,7 +85,7 @@
     
     
     
-    #unstable.zoom-us
+    unstable.zoom-us
     transmission-qt
   ];
 
