@@ -40,13 +40,13 @@
   modules.emacs.enable = false;
 
   home.packages = with pkgs; [
-    (python311.withPackages(ps: with ps; [
+    (unstable.python311.withPackages(ps: with ps; [
       pip
       virtualenv
 
       # LSP
-      unstable.python-lsp-server
-      unstable.python-lsp-server.optional-dependencies.all
+      python-lsp-server
+      python-lsp-server.optional-dependencies.all
 
       epc
       orjson
