@@ -85,6 +85,8 @@
     auto-optimise-store = true;
   };
 
+  systemd.services.NetworkManager-wait-online.enable = false;
+
   system.stateVersion = "23.05"; 
 
 }
