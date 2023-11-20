@@ -97,6 +97,10 @@
     transmission-qt
   ];
 
+  home.sessionVariables = {
+    PYTHONPATH = "${python}/${python.sitePackages}";
+  };
+
   programs.home-manager.enable = true;
   programs.git.enable = true;
 
