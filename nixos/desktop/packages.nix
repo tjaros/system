@@ -3,6 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     theme-sh
+    glibc
     pavucontrol
     gcc-arm-embedded
     bear
