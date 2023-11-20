@@ -49,7 +49,8 @@
       sexpdata
       paramiko
     ]))
-    
+
+    zathura
     unstable.lunarvim
     unstable.helix
     spotify
