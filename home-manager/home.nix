@@ -1,5 +1,20 @@
 { inputs, outputs, lib, config, pkgs, ... }:
 
+let 
+  python = (pkgs.unstable.python311.withPackages(ps: with ps; [
+      pip
+      virtualenv
+
+      # LSP
+      python-lsp-server
+      python-lsp-server.optional-dependencies.all
+
+      epc
+      orjson
+      sexpdata
+      paramiko
+    ]));
+in
 {
   imports = [
     ../modules
@@ -40,20 +55,7 @@
   modules.emacs.enable = false;
 
   home.packages = with pkgs; [
-    (unstable.python311.withPackages(ps: with ps; [
-      pip
-      virtualenv
-
-      # LSP
-      python-lsp-server
-      python-lsp-server.optional-dependencies.all
-
-      epc
-      orjson
-      sexpdata
-      paramiko
-    ]))
-
+    python
     unstable.cargo
     unstable.rustc
     zathura
