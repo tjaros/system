@@ -44,6 +44,10 @@
       pip
       virtualenv
 
+      # LSP
+      unstable.python-lsp-server
+      unstable.python-lsp-server.optional-dependencies.all
+
       epc
       orjson
       sexpdata
