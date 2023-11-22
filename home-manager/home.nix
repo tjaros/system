@@ -59,7 +59,6 @@ in
     unstable.cargo
     unstable.rustc
     zathura
-    unstable.lunarvim
     unstable.helix
     spotify
     networkmanager-openvpn
