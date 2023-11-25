@@ -27,7 +27,7 @@
     [
       ./desktop
       ./global/dwm.nix
-      ./global/zsh.nix
+      ./global/fish.nix
       ./global/fonts.nix
       ./global/keybase.nix
       ./global/locale.nix

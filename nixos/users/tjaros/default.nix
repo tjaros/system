@@ -6,7 +6,7 @@
     isNormalUser = true;
     description = "Tom";
     extraGroups = [ "networkmanager" "wheel" "video" "audio" "docker" "chipwhisperer" "libvirtd" ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
 
   services.xserver.displayManager.autoLogin = {
