@@ -5,6 +5,7 @@
     theme-sh
     byobu
     glibc
+    tmux
     pavucontrol
     gcc-arm-embedded
     bear
