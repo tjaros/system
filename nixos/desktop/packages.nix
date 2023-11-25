@@ -4,7 +4,7 @@
   environment.systemPackages = with pkgs; [
     theme-sh
     byobu
-    tmux
+    screen
     glibc
     pavucontrol
     gcc-arm-embedded
