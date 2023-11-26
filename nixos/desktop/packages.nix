@@ -8,6 +8,7 @@
     gcc-arm-embedded
     bear
     ripgrep
+    tmux
     nodejs_20
     rustup
     cargo
