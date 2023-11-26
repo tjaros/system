@@ -3,8 +3,6 @@
 {
   environment.systemPackages = with pkgs; [
     theme-sh
-    byobu
-    tmux
     glibc
     pavucontrol
     gcc-arm-embedded
