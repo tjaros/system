@@ -26,7 +26,7 @@
   imports =
     [
       ./desktop
-      ./global/dwm.nix
+      ./global/gnome.nix
       ./global/fish.nix
       ./global/fonts.nix
       ./global/keybase.nix
