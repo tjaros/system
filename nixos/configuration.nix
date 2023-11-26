@@ -26,7 +26,7 @@
   imports =
     [
       ./desktop
-      ./global/gnome.nix
+      ./global/hyprland.nix
       ./global/fish.nix
       ./global/fonts.nix
       ./global/keybase.nix
