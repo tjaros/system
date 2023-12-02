@@ -1,10 +1,12 @@
 { inputs, config, pkgs, lib, ... }:
 
+with lib;
+
 let
   cfg = config.modules.i3;
 in 
 {
-  options.modules.i3.enable = mkEnableOption "Enable AwesomeWM desktop";
+  options.modules.i3.enable = mkEnableOption "awesomevm support";
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
