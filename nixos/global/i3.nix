@@ -1,37 +1,15 @@
 { pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    rxvt-unicode
-    kitty
-    dunst
-    pamixer
-    libnotify
-    rofi
-    nitrogen
-    acpi
-    xorg.xbacklight
-    xorg.xmodmap
-    xorg.xinit
-  ];
-
-  environment.pathsToLink = [ "/libexec" ];
-
-  services = {
-    xserver = {
-      enable = true;
-      desktopManager = {
-        xterm.enable = false;
-        xfce = {
-          enable = true;
-          noDesktop = true;
-          enableXfwm = false;
-        };
-      };
-      videoDrivers = ["nvidia" "intel"];
-      windowManager.i3.enable = true;
-      displayManager.defaultSession = "xfce+i3";
-      layout = "us";
-    };
-  };
+  services.xserver.displayManager = {
+    sddm.enable = true;
+    defaultSession = "plasma5+i3+whatever";
+    session = [
+        {
+            manage = "desktop";
+            name = "plasma5+i3+whatever";
+            start = ''exec env KDEWM=${pkgs.i3-gaps}/bin/i3 ${pkgs.plasma-workspace}/bin/startplasma-x11'';
+        }
+    ];
+};
 }
