@@ -14,6 +14,8 @@ in
       rxvt-unicode
       flameshot
       polybarFull
+      dunst
+      libnotify
       kitty
       playerctl
       pamixer
