@@ -12,15 +12,17 @@ in
     home.packages = with pkgs; [
       i3-rounded
       rxvt-unicode
+      flameshot
+      polybarFull
       kitty
       playerctl
       pamixer
       dunst
       rofi
-      nitrogen
       acpi
       xorg.xbacklight
       xorg.xmodmap
+      xsecurelock
     ];
   };
 }
