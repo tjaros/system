@@ -32,7 +32,6 @@
       ./global/keybase.nix
       ./global/locale.nix
       ./global/misc.nix
-      ./global/nvidia.nix
       ./global/pipewire.nix
       ./global/udev.nix
       ./global/virtualization.nix
