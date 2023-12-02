@@ -26,8 +26,8 @@
   imports =
     [
       ./desktop
+      ./global/startx.nix
       ./global/fish.nix
-      ./global/i3.nix
       ./global/fonts.nix
       ./global/nvidia.nix
       ./global/keybase.nix
