@@ -1,10 +1,10 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, config, ... }:
 
 let
-  cfg = config.modules.awesome;
+  cfg = config.modules.i3;
 in 
 {
-  options.modules.awesome.enable = mkEnableOption "Enable AwesomeWM desktop";
+  options.modules.i3.enable = mkEnableOption "Enable AwesomeWM desktop";
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
