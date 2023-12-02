@@ -3,7 +3,7 @@
 {
   home.stateVersion = "23.05";
   imports = [
-    ./i3
+    ./awesome
     ./emacs
   ];
 }

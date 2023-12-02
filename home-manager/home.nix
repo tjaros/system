@@ -53,7 +53,7 @@ in
   };
 
   modules.emacs.enable = false;
-  modules.i3.enable = true;
+  modules.awesome.enable = true;
 
   home.packages = with pkgs; [
     python

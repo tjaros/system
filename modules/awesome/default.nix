@@ -3,18 +3,16 @@
 with lib;
 
 let
-  cfg = config.modules.i3;
+  cfg = config.modules.awesome;
 in 
 {
-  options.modules.i3.enable = mkEnableOption "awesomevm support";
+  options.modules.awesome.enable = mkEnableOption "awesomevm support";
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      i3-rounded
-      material-design-icons
+      awesome
       rxvt-unicode
       flameshot
-      polybarFull
       dunst
       libnotify
       kitty
