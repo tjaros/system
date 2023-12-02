@@ -17,19 +17,9 @@
   services = {
     xserver = {
       enable = true;
-      displayManager.lightdm.enable = true;
-
-      desktopManager = {
-        xterm.enable = false;
-        xfce = {
-          enable = true;
-          noDesktop = true;
-          enableXfwm = false;
-        };
-      };
-
-      displayManager.defaultSession = "xfce";
+      videoDrivers = ["nvidia" "intel"];
       windowManager.i3.enable = true;
+      displayManager.lightdm.enable = true;
     };
   };
   

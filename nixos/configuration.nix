@@ -29,6 +29,7 @@
       ./global/fish.nix
       ./global/i3.nix
       ./global/fonts.nix
+      ./global/nvidia.nix
       ./global/keybase.nix
       ./global/locale.nix
       ./global/misc.nix
