@@ -1,11 +1,6 @@
 { config, ... }:
 
 {
-  services = {
-    xserver = {
-      videoDrivers = ["nvidia" "intel"];
-    };
-  };
   
   hardware.opengl = {
     enable = true;
