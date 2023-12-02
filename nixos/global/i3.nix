@@ -1,15 +1,37 @@
-{ pkgs, ... }:
+{pkgs, ... }:
 
 {
-  services.xserver.displayManager = {
-    sddm.enable = true;
-    defaultSession = "plasma5+i3+whatever";
-    session = [
-        {
-            manage = "desktop";
-            name = "plasma5+i3+whatever";
-            start = ''exec env KDEWM=${pkgs.i3-gaps}/bin/i3 ${pkgs.plasma-workspace}/bin/startplasma-x11'';
-        }
-    ];
-};
+  environment.systemPackages = with pkgs; [
+    gnomeExtensions.appindicator
+    kitty
+    gnomeExtensions.tiling-assistant
+    gnome.gnome-tweaks
+    gnome.zenity
+    xorg.xhost
+    xorg.xmodmap
+    xorg.xev
+    xorg.xprop
+
+  ];
+
+  services = {
+    xserver = {
+      enable = true;
+      videoDrivers = ["nvidia" "intel"];
+      displayManager.lightdm.enable = true;
+
+      desktopManager = {
+        xterm.enable = false;
+        xfce = {
+          enable = true;
+          noDesktop = true;
+          enableXfwm = false;
+        };
+      };
+
+      displayManager.defaultSession = "xfce";
+      windowManager.i3.enable = true;
+    };
+  };
+  
 }

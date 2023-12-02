@@ -27,7 +27,7 @@
     [
       ./desktop
       ./global/fish.nix
-      ./global/awesome.nix
+      ./global/i3.nix
       ./global/fonts.nix
       ./global/keybase.nix
       ./global/locale.nix
