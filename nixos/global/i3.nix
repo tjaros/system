@@ -12,7 +12,10 @@
     acpi
     xorg.xbacklight
     xorg.xmodmap
+    xorg.xinit
   ];
+
+  environment.pathsToLink = [ "/libexec" ];
 
   services = {
     xserver = {
@@ -27,7 +30,7 @@
       };
       videoDrivers = ["nvidia" "intel"];
       windowManager.i3.enable = true;
-      displayManager.defaultSession = "xfce";
+      displayManager.defaultSession = "xfce+i3";
       layout = "us";
     };
   };
