@@ -11,6 +11,7 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       i3-rounded
+      material-icons
       rxvt-unicode
       flameshot
       polybarFull
