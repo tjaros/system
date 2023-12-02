@@ -24,7 +24,7 @@
         defaultSession = "none+awesome";
       };
   
-      services.xserver.windowManager.awesome = {
+      windowManager.awesome = {
         enable = true;
         luaModules = with pkgs.luaPackages; [
           luarocks
