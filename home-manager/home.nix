@@ -61,6 +61,7 @@ in
     unstable.rustc
     zathura
     unstable.helix
+    lua-language-server
     spotify
     networkmanager-openvpn
     openvpn
