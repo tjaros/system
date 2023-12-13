@@ -82,6 +82,7 @@ in
     graphviz
     inkscape
     antimicrox
+    rustdesk
     distrobox
     steam
     vscode
