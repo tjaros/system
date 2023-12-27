@@ -91,6 +91,7 @@ in
     protontricks
     black
     pylint
+    rpcs3
     
     R
     rstudio
