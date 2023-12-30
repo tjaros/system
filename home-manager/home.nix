@@ -79,7 +79,7 @@ in
     autokey
     flatpak
     libreoffice
-    texlive.combined.scheme-basic
+    texlive.combined.scheme-full
     discord
     ghidra-bin
     graphviz
