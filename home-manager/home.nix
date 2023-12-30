@@ -79,6 +79,7 @@ in
     autokey
     flatpak
     libreoffice
+    pdflatex
     discord
     ghidra-bin
     graphviz
