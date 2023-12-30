@@ -68,6 +68,8 @@ in
     unrar
     unzip
     lutris
+    openssl
+    pandoc
     wine
     winetricks
     gimp
