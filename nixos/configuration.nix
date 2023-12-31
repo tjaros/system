@@ -90,6 +90,6 @@
 
   systemd.services.NetworkManager-wait-online.enable = false;
 
-  system.stateVersion = "23.11"; 
+  system.stateVersion = "23.05"; 
 
 }
