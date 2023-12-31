@@ -23,6 +23,8 @@
     };
   };
 
+  programs.steam.enable = true;
+  
   imports =
     [
       ./desktop
