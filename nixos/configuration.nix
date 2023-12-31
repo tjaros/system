@@ -47,7 +47,7 @@
     home-manager
   ];
 
-  jxdg.portal = {
+  xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
