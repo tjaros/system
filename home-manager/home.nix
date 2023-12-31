@@ -70,6 +70,7 @@ in
     lutris
     openssl
     pandoc
+    steam-run
     wine
     winetricks
     gimp
