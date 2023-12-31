@@ -94,6 +94,8 @@ in
     black
     pylint
     rpcs3
+
+    unstable.steam
     
     R
     rstudio
