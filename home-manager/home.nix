@@ -87,7 +87,7 @@ in
     antimicrox
     rustdesk
     distrobox
-    steam
+    unstable.steam
     vscode
     gnumake
     llvmPackages_9.clang-unwrapped
