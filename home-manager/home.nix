@@ -70,7 +70,6 @@ in
     lutris
     openssl
     pandoc
-    steam-run
     wine
     winetricks
     gimp
@@ -88,7 +87,6 @@ in
     antimicrox
     rustdesk
     distrobox
-    unstable.steam
     vscode
     gnumake
     llvmPackages_9.clang-unwrapped
