@@ -24,7 +24,7 @@
     pkg-config
     cmake
     gcc
-    keybase
+    unstable.keybase
     keybase-gui
     thunderbird
     keepassxc
