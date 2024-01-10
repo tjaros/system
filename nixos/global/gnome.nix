@@ -19,6 +19,7 @@
       enable = true;
       videoDrivers = ["nvidia" "intel"];
       displayManager.gdm.enable = true;
+      displayManager.gdm.wayland = false;
       desktopManager.gnome.enable = true;
     };
   };
