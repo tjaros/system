@@ -25,7 +25,7 @@
     cmake
     gcc
     unstable.keybase
-    keybase-gui
+    unstable.keybase-gui
     thunderbird
     keepassxc
     wget
