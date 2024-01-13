@@ -14,6 +14,7 @@
     cargo
     networkmanagerapplet
     mpv
+    zlib
     wl-clipboard    
     sxiv
     xdotool
