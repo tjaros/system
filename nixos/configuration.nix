@@ -47,7 +47,6 @@
       ./global/fish.nix
       ./global/fonts.nix
       ./global/nvidia.nix
-      ./global/keybase.nix
       ./global/locale.nix
       ./global/misc.nix
       ./global/pipewire.nix
