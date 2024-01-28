@@ -8,7 +8,7 @@
   };
 
   systemd.user.services = {
-    keybase.serviceConfig.Slice = "keybase.slice";
+    unstable.keybase.serviceConfig.Slice = "keybase.slice";
 
     kbfs = {
       environment = { KEYBASE_RUN_MODE = "prod"; };
