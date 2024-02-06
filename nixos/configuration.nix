@@ -42,7 +42,6 @@
 
   services.openssh = {
     enable = true;
-    settings.PasswordQuthentication = true;
   };
   
   imports =
