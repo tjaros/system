@@ -39,6 +39,11 @@
   
   system.autoUpgrade.enable  = true;
   system.autoUpgrade.allowReboot  = true;
+
+  services.openssh = {
+    enable = true;
+    settings.PasswordQuthentication = true;
+  };
   
   imports =
     [
