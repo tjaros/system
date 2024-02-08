@@ -75,6 +75,7 @@ in
     gimp
     runelite
     skypeforlinux
+    obsidian
     chromium
     autokey
     flatpak
