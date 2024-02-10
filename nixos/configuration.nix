@@ -47,7 +47,7 @@
   imports =
     [
       ./desktop
-      ./global/startx.nix
+      ./global/dwm.nix
       ./global/fish.nix
       ./global/fonts.nix
       ./global/nvidia.nix
