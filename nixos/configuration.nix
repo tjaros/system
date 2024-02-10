@@ -65,9 +65,9 @@
     home-manager
   ];
 
-  xdg.portal = {
-    enable = true;
-  };
+  # xdg.portal = {
+    # enable = true;
+  # };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
