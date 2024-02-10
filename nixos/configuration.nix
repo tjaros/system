@@ -47,7 +47,7 @@
   imports =
     [
       ./desktop
-      ./global/dwm.nix
+      ./global/gnome.nix
       ./global/fish.nix
       ./global/fonts.nix
       ./global/nvidia.nix
@@ -65,9 +65,9 @@
     home-manager
   ];
 
-  # xdg.portal = {
-    # enable = true;
-  # };
+  xdg.portal = {
+    enable = true;
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
