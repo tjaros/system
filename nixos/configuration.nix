@@ -47,7 +47,7 @@
   imports =
     [
       ./desktop
-      ./global/gnome.nix
+      ./global/startx.nix
       ./global/fish.nix
       ./global/fonts.nix
       ./global/nvidia.nix
@@ -112,6 +112,6 @@
 
   systemd.services.NetworkManager-wait-online.enable = false;
 
-  system.stateVersion = "23.05"; 
+  system.stateVersion = "23.05";
 
 }
