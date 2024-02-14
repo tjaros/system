@@ -94,6 +94,7 @@ in
     black
     pylint
     rpcs3
+    element-desktop
 
    
     R
