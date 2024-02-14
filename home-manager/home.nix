@@ -94,8 +94,7 @@ in
     black
     pylint
     rpcs3
-    element-desktop
-
+    nheko
    
     R
     rstudio
