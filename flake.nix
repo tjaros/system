@@ -37,7 +37,7 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake ~/system/#astora'
     nixosConfigurations = {
-      astora = nixpkgs.lib.nixosSystem {
+      lordaeron= nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; }; # Pass flake inputs to our config
         # > Our main nixos configuration file <
         modules = [
