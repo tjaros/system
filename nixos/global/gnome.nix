@@ -2,9 +2,8 @@
 
 {
   environment.systemPackages = with pkgs; [
-    gnomeExtensions.appindicator
     kitty
-    gnomeExtensions.tiling-assistant
+    gnomeExtensions.screen-rotate
     gnome.gnome-tweaks
     gnome.zenity
     xorg.xhost
@@ -13,6 +12,7 @@
     xorg.xprop
 
   ];
+  services.udev.packages =  with pkgs; [ gnome.gnome-settings-daemon ];
 
   services = {
     xserver = {
