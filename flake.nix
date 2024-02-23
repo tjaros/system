@@ -47,7 +47,7 @@
     };
 
     homeConfigurations = {
-      "tjaros@astora" = home-manager.lib.homeManagerConfiguration {
+      "tjaros@lordaeron" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
