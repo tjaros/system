@@ -17,7 +17,7 @@
   services = {
     xserver = {
       enable = true;
-      videoDrivers = ["nvidia" "intel"];
+      videoDrivers = ["intel"];
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };
