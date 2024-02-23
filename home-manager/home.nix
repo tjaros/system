@@ -65,6 +65,7 @@ in
     networkmanager-openvpn
     openvpn
     unrar
+    xournalpp
     unzip
     lutris
     wine
