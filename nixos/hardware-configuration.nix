@@ -25,6 +25,8 @@
       fsType = "vfat";
     };
 
+  hardware.sensor.iio.enable = true;
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
