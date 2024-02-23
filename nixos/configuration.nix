@@ -26,7 +26,7 @@
   imports =
     [
       ./desktop
-      ./global/dwm.nix
+      ./global/gnome.nix
       ./global/zsh.nix
       ./global/fonts.nix
       ./global/keybase.nix
@@ -54,12 +54,9 @@
     "/crypto_keyfile.bin" = null;
   };
 
-  # Enable swap on luks
-  boot.initrd.luks.devices."luks-4d65f029-de33-4194-9dbd-c929f7a04d6d".device = "/dev/disk/by-uuid/4d65f029-de33-4194-9dbd-c929f7a04d6d";
-  boot.initrd.luks.devices."luks-4d65f029-de33-4194-9dbd-c929f7a04d6d".keyFile = "/crypto_keyfile.bin";
 
   networking = {
-    hostName = "astora";
+    hostName = "lordaeron";
     networkmanager.enable = true;
   };
 
