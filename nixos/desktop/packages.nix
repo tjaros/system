@@ -23,8 +23,6 @@
     pkg-config
     cmake
     gcc
-    keybase
-    keybase-gui
     thunderbird
     keepassxc
     wget

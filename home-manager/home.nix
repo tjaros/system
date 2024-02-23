@@ -59,12 +59,12 @@ in
     unstable.cargo
     unstable.rustc
     zathura
-    unstable.lunarvim
     unstable.helix
     spotify
     networkmanager-openvpn
     openvpn
     unrar
+    element-desktop
     xournalpp
     unzip
     lutris
@@ -72,13 +72,9 @@ in
     winetricks
     gimp
     runelite
-    skypeforlinux
-    chromium
     autokey
-    flatpak
     libreoffice
     discord
-    ghidra-bin
     graphviz
     inkscape
     antimicrox
