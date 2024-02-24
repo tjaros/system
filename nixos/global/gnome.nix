@@ -3,24 +3,24 @@
 {
   environment.systemPackages = with pkgs; [
     kitty
-    unstable.gnomeExtensions.screen-rotate
-    unstable.gnomeExtensions.arcmenu
-    unstable.gnomeExtensions.tiling-assistant
-    unstable.gnomeExtensions.battery-time-percentage-compact
-    unstable.gnomeExtensions.dash-to-panel
-    unstable.gnomeExtensions.impatience
-    unstable.gnomeExtensions.hide-clock
-    unstable.gnomeExtensions.resource-monitor
-    unstable.gnomeExtensions.workspace-indicator
-    unstable.gnome.gnome-tweaks
-    unstable.gnome.zenity
+    gnomeExtensions.screen-rotate
+    gnomeExtensions.arcmenu
+    gnomeExtensions.tiling-assistant
+    gnomeExtensions.battery-time-percentage-compact
+    gnomeExtensions.dash-to-panel
+    gnomeExtensions.impatience
+    gnomeExtensions.hide-clock
+    gnomeExtensions.resource-monitor
+    gnomeExtensions.workspace-indicator
+    gnome.gnome-tweaks
+    gnome.zenity
     xorg.xhost
     xorg.xmodmap
     xorg.xev
     xorg.xprop
 
   ];
-  services.udev.packages =  with pkgs; [ unstable.gnome.gnome-settings-daemon ];
+  services.udev.packages =  with pkgs; [ gnome.gnome-settings-daemon ];
 
   services = {
     xserver = {

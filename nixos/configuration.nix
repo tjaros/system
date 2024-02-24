@@ -16,9 +16,6 @@
           }; 
         });
       })
-      (self: super: {
-        gnome = pkgs.unstable.gnome;
-      })
     ];
 
     config = {
