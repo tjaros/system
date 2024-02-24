@@ -15,6 +15,9 @@
             rev = "17e694ba08e6571f7ee19df15a2630e1995a0ebd";
           }; 
         });
+        (self: super: {
+          gnome = unstable.gnome;
+        });
       })
     ];
 
