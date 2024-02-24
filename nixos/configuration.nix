@@ -17,7 +17,7 @@
         });
       })
       (self: super: {
-        gnome = unstable.gnome;
+        gnome = pkgs.unstable.gnome;
       })
     ];
 
