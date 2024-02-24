@@ -4,16 +4,8 @@
   environment.systemPackages = with pkgs; [
     kitty
     gnomeExtensions.screen-rotate
-    gnomeExtensions.gtile
-    gnomeExtensions.arcmenu
-    gnomeExtensions.tiling-assistant
-    gnomeExtensions.battery-time-percentage-compact
-    gnomeExtensions.dash-to-panel
-    gnomeExtensions.impatience
-    gnomeExtensions.hide-clock
-    gnomeExtensions.resource-monitor
-    gnomeExtensions.workspace-indicator
     gnome.gnome-tweaks
+    gnomeExtensions.pop-shell
     gnome.zenity
     xorg.xhost
     xorg.xmodmap
