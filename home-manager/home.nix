@@ -86,7 +86,6 @@ in
     protontricks
     black
     pylint
-    firefox
     
     R
     rstudio
