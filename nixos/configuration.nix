@@ -18,7 +18,7 @@
       })
       (self: super: {
         gnome = unstable.gnome;
-      });
+      })
     ];
 
     config = {
