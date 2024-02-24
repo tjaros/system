@@ -19,8 +19,8 @@
     unzip
     direnv
     nix-direnv
-    brave
     pkg-config
+    firefox
     cmake
     gcc
     thunderbird

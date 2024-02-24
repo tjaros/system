@@ -26,7 +26,7 @@
   imports =
     [
       ./desktop
-      ./global/gnome.nix
+      ./global/plasma.nix
       ./global/zsh.nix
       ./global/fonts.nix
       ./global/keybase.nix
