@@ -26,6 +26,7 @@
   imports =
     [
       ./desktop
+      ./global/fingerprint-reader.nix
       ./global/gnome.nix
       ./global/zsh.nix
       ./global/fonts.nix
