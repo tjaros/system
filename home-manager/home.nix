@@ -67,7 +67,6 @@ in
     element-desktop
     xournalpp
     unzip
-    lutris
     wine
     winetricks
     gimp
@@ -79,16 +78,14 @@ in
     inkscape
     antimicrox
     distrobox
-    steam
     vscode
     gnumake
     llvmPackages_9.clang-unwrapped
-    protontricks
     black
     pylint
+    verilog
+    gtkwave
     
-    R
-    rstudio
     
     
     
