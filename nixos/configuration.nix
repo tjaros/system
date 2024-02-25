@@ -63,6 +63,11 @@
   # To make nix3 commands consistent with your flake
   nix.registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
 
+  # Use direnv in zsh
+  programs.zsh.interactiveShellInit = ''
+    eval "$(direnv hook zsh)"
+  '';
+  
   # This will additionally add your inputs to the system's legacy channels
   # Making legacy nix commands consistent as well, awesome!
   nix.nixPath = ["/etc/nix/path"];
