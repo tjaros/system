@@ -85,6 +85,8 @@ in
     pylint
     verilog
     gtkwave
+
+    quartus-prime-lite
     
     
     
