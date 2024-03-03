@@ -1,4 +1,6 @@
 {
+    users.groups.chipwhisperer = {};
+    
     services.udev.extraRules = ''
     # USB-Blaster
     SUBSYSTEM=="usb", ATTR{idVendor}=="09fb", ATTR{idProduct}=="6001", MODE="0666"
