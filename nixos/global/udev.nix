@@ -1,5 +1,6 @@
 {
     users.groups.chipwhisperer = {};
+    users.groups.chipwhisperer.members = ["tjaros"];
     
     services.udev.extraRules = ''
     # USB-Blaster
