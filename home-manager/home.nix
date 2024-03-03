@@ -87,7 +87,7 @@ in
     gtkwave
 
     quartus-prime-lite
-    texliveMedium
+    unstable.texliveMedium
     
     
     
