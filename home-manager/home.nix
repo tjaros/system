@@ -55,7 +55,7 @@ in
   modules.emacs.enable = false;
 
   home.packages = with pkgs; [
-    python
+    #python
     unstable.cargo
     unstable.rustc
     zathura
@@ -97,7 +97,7 @@ in
   ];
 
   home.sessionVariables = {
-    PYTHONPATH = "${python}/${python.sitePackages}";
+    #PYTHONPATH = "${python}/${python.sitePackages}";
   };
 
   programs.home-manager.enable = true;
