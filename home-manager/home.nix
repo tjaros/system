@@ -87,6 +87,7 @@ in
     gtkwave
 
     quartus-prime-lite
+    texliveMedium
     
     
     
