@@ -90,7 +90,7 @@ in
     quartus-prime-lite
     unstable.texliveFull
 
-    unstable.smartgithg
+    unstable.qgit
     unstable.zoom-us
     transmission-qt
   ];
