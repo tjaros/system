@@ -20,6 +20,10 @@ in
     ../modules
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+                "openssl-1.1.1w"
+  ];
+
   nixpkgs = {
     # You can add overlays here
     overlays = [
