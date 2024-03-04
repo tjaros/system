@@ -90,8 +90,7 @@ in
     quartus-prime-lite
     unstable.texliveFull
     
-    
-    unstable.sublime4-dev
+    sublime-merge
     unstable.zoom-us
     transmission-qt
   ];
