@@ -91,7 +91,7 @@ in
     unstable.texliveFull
     
     
-    
+    unstable.sublime4-dev
     unstable.zoom-us
     transmission-qt
   ];
