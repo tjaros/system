@@ -90,8 +90,7 @@ in
     quartus-prime-lite
     unstable.texliveFull
 
-    gitnuro
-    gittyup
+    github-desktop
     unstable.zoom-us
     transmission-qt
   ];
