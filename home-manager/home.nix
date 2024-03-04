@@ -88,7 +88,7 @@ in
 
     quartus-prime-lite
     unstable.texliveFull
-    sublime4
+    unstable.sublime4
     
     
     
