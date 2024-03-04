@@ -93,7 +93,7 @@ in
     
     
     unstable.zoom-us
-    unstable.gitkraken
+    gitkraken
     transmission-qt
   ];
 
