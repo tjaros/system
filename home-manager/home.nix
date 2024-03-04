@@ -87,6 +87,8 @@ in
     verilog
     gtkwave
 
+    gittyup
+
     quartus-prime-lite
     unstable.texliveFull
 
