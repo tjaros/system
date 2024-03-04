@@ -88,12 +88,11 @@ in
 
     quartus-prime-lite
     unstable.texliveFull
-    
+    sublime4
     
     
     
     unstable.zoom-us
-    gitkraken
     transmission-qt
   ];
 
