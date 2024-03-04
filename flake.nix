@@ -27,9 +27,6 @@
     in {
 
     
-    nixpkgs.config.permittedInsecurePackages = [
-                  "openssl-1.1.1w"
-    ];
 
       # Your custom packages
     # Accessible through 'nix build', 'nix shell', etc
