@@ -90,7 +90,7 @@ in
     quartus-prime-lite
     unstable.texliveFull
 
-    megit
+    gitnuro
     gittyup
     unstable.zoom-us
     transmission-qt
