@@ -53,7 +53,7 @@ in
       };
   };
 
-  modules.emacs.enable = true;
+  modules.emacs.enable = false;
 
   home.packages = with pkgs; [
     #python
@@ -86,6 +86,7 @@ in
     pylint
     verilog
     gtkwave
+    lunarvim
 
     gittyup
 
