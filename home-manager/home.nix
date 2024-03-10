@@ -92,7 +92,6 @@ in
     quartus-prime-lite
     unstable.texliveFull
 
-    unstable.git-cola
     unstable.zoom-us
     transmission-qt
   ];
