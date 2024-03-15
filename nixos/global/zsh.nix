@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     starship
   ];
   programs.zsh = {
