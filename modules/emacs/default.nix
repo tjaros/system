@@ -321,6 +321,18 @@ in {
             '';
           };
 
+          evil = {
+            enable = true;
+            config = ''
+              (evil-mode 1)
+              (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+              (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+              (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+              (evil-set-initial-state 'messages-buffer-mode 'normal)
+              (evil-set-initial-state 'dashboard-mode 'normal)
+            '';
+          };
+
           protobuf-mode = { enable = true; };
 
           swiper = {
@@ -397,7 +409,6 @@ in {
           org-mime.enable = true;
           org-pomodoro.enable = true;
           org-projectile.enable = true;
-
           systemd.enable = true;
           terraform-mode.enable = true;
         };
