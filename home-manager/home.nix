@@ -53,14 +53,15 @@ in
       };
   };
 
-  modules.emacs.enable = true;
+  modules.emacs.enable = false;
 
   home.packages = with pkgs; [
     #python
     unstable.cargo
     unstable.rustc
     zathura
-    unstable.helix
+    #unstable.helix
+    vim
     spotify
     networkmanager-openvpn
     openvpn
