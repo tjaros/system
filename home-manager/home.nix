@@ -94,6 +94,9 @@ in
     quartus-prime-lite
     unstable.texliveFull
 
+    fzf
+    bat
+
     unstable.zoom-us
     transmission-qt
   ];
