@@ -87,6 +87,7 @@ in
     pylint
     verilog
     gtkwave
+	go
     unstable.lunarvim
 
     gittyup
