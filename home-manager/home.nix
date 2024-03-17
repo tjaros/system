@@ -53,7 +53,7 @@ in
       };
   };
 
-  modules.emacs.enable = false;
+  modules.emacs.enable = true;
 
   home.packages = with pkgs; [
     #python
@@ -61,7 +61,6 @@ in
     unstable.rustc
     zathura
     #unstable.helix
-    vim
     spotify
     networkmanager-openvpn
     openvpn
@@ -88,7 +87,7 @@ in
     verilog
     gtkwave
 	go
-    unstable.lunarvim
+    #unstable.lunarvim
 
     gittyup
 
