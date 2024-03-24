@@ -1,7 +1,13 @@
-{ inputs, outputs, lib, config, pkgs, ... }:
-
-let 
-  python = (pkgs.unstable.python311.withPackages(ps: with ps; [
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: let
+  python = pkgs.unstable.python311.withPackages (ps:
+    with ps; [
       pip
       virtualenv
 
@@ -13,13 +19,11 @@ let
       orjson
       sexpdata
       paramiko
-    ]));
-in
-{
+    ]);
+in {
   imports = [
     ../modules
   ];
-
 
   nixpkgs = {
     # You can add overlays here
@@ -33,13 +37,12 @@ in
         sha256 = "04fcr3ns2hinqypxvfc6niyjjzr5mmqrwvjhxz6x1mwgfvgjicrv";
       }))
     ];
-    
+
     config = {
       allowUnfree = true;
-      allowUnfreePredicate = (_: true);
+      allowUnfreePredicate = _: true;
     };
   };
-
 
   home = {
     username = "tjaros";
@@ -50,7 +53,7 @@ in
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = ["qemu:///system"];
       uris = ["qemu:///system"];
-      };
+    };
   };
 
   modules.nixvim.enable = true;

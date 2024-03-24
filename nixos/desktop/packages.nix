@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     theme-sh
     stylish
@@ -14,7 +12,7 @@
     cargo
     networkmanagerapplet
     mpv
-    wl-clipboard    
+    wl-clipboard
     sxiv
     xdotool
     unzip

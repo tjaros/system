@@ -1,10 +1,13 @@
-{ inputs, outputs, config, pkgs, lib, ... }:
-
-
 {
-
+  inputs,
+  outputs,
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   nixpkgs = {
-    overlays  = [
+    overlays = [
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
@@ -13,7 +16,7 @@
           src = fetchGit {
             url = "https://github.com/tjaros/dwm.git";
             rev = "17e694ba08e6571f7ee19df15a2630e1995a0ebd";
-          }; 
+          };
         });
       })
     ];
@@ -23,24 +26,23 @@
     };
   };
 
-  imports =
-    [
-      ./desktop
-      ./global/fingerprint-reader.nix
-      ./global/gnome.nix
-      ./global/zsh.nix
-      ./global/fonts.nix
-      ./global/keybase.nix
-      ./global/locale.nix
-      ./global/misc.nix
-      ./global/pipewire.nix
-      ./global/udev.nix
-      ./global/virtualization.nix
-      ./global/development.nix
-      ./hardware-configuration.nix
-      ./users/tjaros
-    ];
-  
+  imports = [
+    ./desktop
+    ./global/fingerprint-reader.nix
+    ./global/gnome.nix
+    ./global/zsh.nix
+    ./global/fonts.nix
+    ./global/keybase.nix
+    ./global/locale.nix
+    ./global/misc.nix
+    ./global/pipewire.nix
+    ./global/udev.nix
+    ./global/virtualization.nix
+    ./global/development.nix
+    ./hardware-configuration.nix
+    ./users/tjaros
+  ];
+
   environment.systemPackages = with pkgs; [
     home-manager
   ];
@@ -53,7 +55,6 @@
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
   };
-
 
   networking = {
     hostName = "lordaeron";
@@ -68,7 +69,7 @@
   programs.zsh.interactiveShellInit = ''
     eval "$(direnv hook zsh)"
   '';
-  
+
   # This will additionally add your inputs to the system's legacy channels
   # Making legacy nix commands consistent as well, awesome!
   nix.nixPath = ["/etc/nix/path"];
@@ -89,6 +90,5 @@
 
   systemd.services.NetworkManager-wait-online.enable = false;
 
-  system.stateVersion = "23.05"; 
-
+  system.stateVersion = "23.05";
 }

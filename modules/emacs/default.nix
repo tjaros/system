@@ -1,20 +1,21 @@
-{ inputs, pkgs, lib, config, ... }:
-
-with lib;
-
-let
+{
+  inputs,
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+with lib; let
   cfg = config.modules.emacs;
   lsp-bridge = builtins.fetchGit {
     url = "https://github.com/manateelazycat/lsp-bridge.git";
     rev = "4e751899c49f83b0bd03b2f564972fbca839137b";
   };
-
 in {
   options.modules.emacs.enable = mkEnableOption "emacs without spacemacs support";
-  imports = [ ./emacs-init.nix ];
-  
-  config = mkIf cfg.enable {
+  imports = [./emacs-init.nix];
 
+  config = mkIf cfg.enable {
     home.packages = with pkgs; [
       # language servers
       ccls
@@ -22,17 +23,15 @@ in {
       nodePackages.pyright
     ];
 
-
     home.file.".emacs.d/lisp/lsp-bridge".source = lsp-bridge;
     home.file.".emacs.d/lisp/spaceway".source = ./spaceway;
-    
+
     programs.emacs = {
       enable = true;
       package = pkgs.emacs-unstable.overrideAttrs (finalAttrs: previousAttrs: {
         withNativeComp = true;
         withTreeSitter = true;
       });
-      
 
       init = {
         enable = true;
@@ -45,92 +44,94 @@ in {
             (when window-system
               (set-frame-font "Hasklig ${fontSize}"))
           '';
-        in emacsFont + ''
-          (require 'bind-key)
+        in
+          emacsFont
+          + ''
+            (require 'bind-key)
 
-          (setq inhibit-startup-screen t)
+            (setq inhibit-startup-screen t)
 
-          (menu-bar-mode -1)
-
-
-          (electric-pair-mode)
-
-          (recentf-mode 1)
-          (setq recentf-max-menu-items 25)
-          (setq recentf-max-saved-items 25)
-          (global-set-key "\C-x\ \C-r" 'recentf-open-files)
-
-          (when window-system
-            (dolist (mode
-              '(tool-bar-mode
-                tooltip-mode
-                scroll-bar-mode
-                menu-bar-mode
-                blink-cursor-mode))
-              (funcall mode 0)))
-
-          (add-hook 'text-mode-hook 'auto-fill-mode)
-
-          (setq delete-old-versions -1 )		; delete excess backup versions silently
-          (setq version-control t )		; use version control
-          (setq vc-make-backup-files t )		; make backups file even when in version controlled dir
-          (setq backup-directory-alist `(("." . "~/.emacs.d/backups")) ) ; which directory to put backups file
-          (setq vc-follow-symlinks t )				       ; don't ask for confirmation when opening symlinked file
-          (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)) ) ;transform backups file name
-          (setq inhibit-startup-screen t )	; inhibit useless and old-school startup screen
-          (setq ring-bell-function 'ignore )	; silent bell when you make a mistake
-          (setq coding-system-for-read 'utf-8 )	; use utf-8 by default
-          (setq coding-system-for-write 'utf-8 )
-          (setq sentence-end-double-space nil)	; sentence SHOULD end with only a point.
-          (setq default-fill-column 80)		; toggle wrapping text at the 80th character
-
-          (defun chomp (str)
-            "Chomp leading and tailing whitespace from STR."
-            (while (string-match "\\`\n+\\|^\\s-+\\|\\s-+$\\|\n+\\'"
-                                str)
-              (setq str (replace-match "" t t str)))
-            str)
-          (setq gofmt-command "goimports")
-          (defun eshell/e (arg)
-            "opens a given file in emacs from eshell"
-            (find-file arg))
-
-          (defun eshell/eh (arg)
-            "opens a file in emacs from shell horizontally"
-            (split-window-vertically)
-            (other-window 1)
-            (find-file arg))
-
-          (defun eshell/ev (arg)
-            "opens a file in emacs from shell vertically"
-            (split-window-horizontally)
-            (other-window 1)
-            (find-file arg))
-
-          ;;(set-frame-parameter (selected-frame) 'alpha '(85 . 85))
-          ;;(add-to-list 'default-frame-alist '(alpha . (85 . 85)))
-
-          (add-to-list 'load-path "~/.emacs.d/lisp/lsp-bridge")
-          (require 'lsp-bridge)
-          (global-lsp-bridge-mode)
-          (setq lsp-bridge-nix-lsp-server 'nil)
-          (setq lsp-bridge-c-lsp-server 'ccls)
+            (menu-bar-mode -1)
 
 
-          (add-hook 'direnv-envrc-mode-hook 'lsp-bridge-restart-process)
+            (electric-pair-mode)
 
-          (use-package spaceway-theme
-            :ensure nil
-            :load-path "~/.emacs.d/lisp/spaceway/"
-            :config
-            (global-hl-line-mode t)
-            (set-cursor-color "#cdcdcd");;dc32ff
-            ;; (when my/my-system
-            ;;   (set-frame-parameter (selected-frame) 'alpha '(90 90))
-            ;;   (add-to-list 'default-frame-alist '(alpha 90 90)))
-            (load-theme 'spaceway t))
-          
-        '';
+            (recentf-mode 1)
+            (setq recentf-max-menu-items 25)
+            (setq recentf-max-saved-items 25)
+            (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+
+            (when window-system
+              (dolist (mode
+                '(tool-bar-mode
+                  tooltip-mode
+                  scroll-bar-mode
+                  menu-bar-mode
+                  blink-cursor-mode))
+                (funcall mode 0)))
+
+            (add-hook 'text-mode-hook 'auto-fill-mode)
+
+            (setq delete-old-versions -1 )		; delete excess backup versions silently
+            (setq version-control t )		; use version control
+            (setq vc-make-backup-files t )		; make backups file even when in version controlled dir
+            (setq backup-directory-alist `(("." . "~/.emacs.d/backups")) ) ; which directory to put backups file
+            (setq vc-follow-symlinks t )				       ; don't ask for confirmation when opening symlinked file
+            (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)) ) ;transform backups file name
+            (setq inhibit-startup-screen t )	; inhibit useless and old-school startup screen
+            (setq ring-bell-function 'ignore )	; silent bell when you make a mistake
+            (setq coding-system-for-read 'utf-8 )	; use utf-8 by default
+            (setq coding-system-for-write 'utf-8 )
+            (setq sentence-end-double-space nil)	; sentence SHOULD end with only a point.
+            (setq default-fill-column 80)		; toggle wrapping text at the 80th character
+
+            (defun chomp (str)
+              "Chomp leading and tailing whitespace from STR."
+              (while (string-match "\\`\n+\\|^\\s-+\\|\\s-+$\\|\n+\\'"
+                                  str)
+                (setq str (replace-match "" t t str)))
+              str)
+            (setq gofmt-command "goimports")
+            (defun eshell/e (arg)
+              "opens a given file in emacs from eshell"
+              (find-file arg))
+
+            (defun eshell/eh (arg)
+              "opens a file in emacs from shell horizontally"
+              (split-window-vertically)
+              (other-window 1)
+              (find-file arg))
+
+            (defun eshell/ev (arg)
+              "opens a file in emacs from shell vertically"
+              (split-window-horizontally)
+              (other-window 1)
+              (find-file arg))
+
+            ;;(set-frame-parameter (selected-frame) 'alpha '(85 . 85))
+            ;;(add-to-list 'default-frame-alist '(alpha . (85 . 85)))
+
+            (add-to-list 'load-path "~/.emacs.d/lisp/lsp-bridge")
+            (require 'lsp-bridge)
+            (global-lsp-bridge-mode)
+            (setq lsp-bridge-nix-lsp-server 'nil)
+            (setq lsp-bridge-c-lsp-server 'ccls)
+
+
+            (add-hook 'direnv-envrc-mode-hook 'lsp-bridge-restart-process)
+
+            (use-package spaceway-theme
+              :ensure nil
+              :load-path "~/.emacs.d/lisp/spaceway/"
+              :config
+              (global-hl-line-mode t)
+              (set-cursor-color "#cdcdcd");;dc32ff
+              ;; (when my/my-system
+              ;;   (set-frame-parameter (selected-frame) 'alpha '(90 90))
+              ;;   (add-to-list 'default-frame-alist '(alpha 90 90)))
+              (load-theme 'spaceway t))
+
+          '';
 
         usePackageVerbose = true;
 
@@ -162,11 +163,10 @@ in {
 
               (advice-add 'mood-line-segment-buffer-name :around #'tj/mood-line-segment-project-advice)
               (mood-line-mode)
-            ''; 
+            '';
           };
 
-
-          dockerfile-mode = { enable = true; };
+          dockerfile-mode = {enable = true;};
 
           vertico = {
             enable = true;
@@ -185,10 +185,10 @@ in {
                 (let ((point-before (point)))
                   (consult-yank-pop)
                   (indent-region point-before (point))))
-              (completion-in-region-function #'consult-completion-in-region)                           
+              (completion-in-region-function #'consult-completion-in-region)
               (xref-show-xrefs-function #'consult-xref)
               (xref-show-definitions-function #'consult-xref)
-              (consult-project-root-function #'deadgrep--project-root) ;; ensure ripgrep works  
+              (consult-project-root-function #'deadgrep--project-root) ;; ensure ripgrep works
             '';
             bindStar = {
               "C-c i" = "consult-imenu";
@@ -212,16 +212,14 @@ in {
               "C-c l" = "counsel-locate";
               "M-y" = "counsel-yank-pop";
             };
-
           };
 
           marginalia = {
             enable = true;
-            after = [ "vertico" ];
+            after = ["vertico"];
             config = ''
               (marginalia-mode)
             '';
-            
           };
 
           orderless = {
@@ -231,7 +229,7 @@ in {
             '';
           };
 
-          cython-mode = { enable = true; };
+          cython-mode = {enable = true;};
 
           direnv = {
             enable = true;
@@ -252,17 +250,17 @@ in {
 
           flycheck = {
             enable = true;
-            diminish = [ "flycheck-mode" ];
+            diminish = ["flycheck-mode"];
             config = ''
               (global-flycheck-mode)
             '';
           };
 
-          go-mode = { enable = true; };
+          go-mode = {enable = true;};
 
           lsp-mode = {
             enable = false;
-            command = [ "lsp" ];
+            command = ["lsp"];
             hook = [
               "(go-mode . lsp)"
               "(rust-mode . lsp)"
@@ -273,14 +271,13 @@ in {
             '';
           };
 
-
           magit = {
             enable = true;
           };
 
           markdown-mode = {
             enable = true;
-            command = [ "markdown-mode" "gfm-mode" ];
+            command = ["markdown-mode" "gfm-mode"];
             mode = [
               ''("README\\.md\\'" . gfm-mode)''
               ''("\\.md\\'" . markdown-mode)''
@@ -288,12 +285,12 @@ in {
             ];
           };
 
-          nix = { enable = true; };
+          nix = {enable = true;};
 
           nix-mode = {
             enable = true;
-            mode = [ ''"\\.nix\\'"'' ];
-            bindLocal = { nix-mode-map = { "C-i" = "nix-indent-line"; }; };
+            mode = [''"\\.nix\\'"''];
+            bindLocal = {nix-mode-map = {"C-i" = "nix-indent-line";};};
           };
 
           nix-prettify-mode = {
@@ -305,13 +302,13 @@ in {
 
           nix-drv-mode = {
             enable = true;
-            mode = [ ''"\\.drv\\'"'' ];
+            mode = [''"\\.drv\\'"''];
           };
 
           projectile = {
             enable = true;
-            after = [ "vertico" ];
-            diminish = [ "projectile-mode" ];
+            after = ["vertico"];
+            diminish = ["projectile-mode"];
             config = ''
               (projectile-mode 1)
               (progn
@@ -334,17 +331,17 @@ in {
             '';
           };
 
-          protobuf-mode = { enable = true; };
+          protobuf-mode = {enable = true;};
 
           swiper = {
             enable = true;
 
-            bindStar = { "C-s" = "swiper"; };
+            bindStar = {"C-s" = "swiper";};
           };
 
           which-key = {
             enable = true;
-            diminish = [ "which-key-mode" ];
+            diminish = ["which-key-mode"];
             config = ''
               (which-key-mode)
               (which-key-setup-side-window-right-bottom)
@@ -371,37 +368,37 @@ in {
 
           dhall-mode = {
             enable = true;
-            mode = [ ''"\\.dhall\\'"'' ];
+            mode = [''"\\.dhall\\'"''];
           };
 
           moonscript = {
             enable = true;
-            mode = [ ''"\\.moon\\'"'' ];
+            mode = [''"\\.moon\\'"''];
           };
 
           rust-mode = {
             enable = true;
-            mode = [ ''"\\.rs\\'"'' ];
+            mode = [''"\\.rs\\'"''];
           };
 
           toml-mode = {
             enable = true;
-            mode = [ ''"\\.toml\\'"'' ];
+            mode = [''"\\.toml\\'"''];
           };
 
           zig-mode = {
             enable = true;
-            mode = [ ''"\\.zig\\'"'' ];
+            mode = [''"\\.zig\\'"''];
           };
 
           nov = {
             enable = true;
-            mode = [ ''"\\.epub\\'"'' ];
+            mode = [''"\\.epub\\'"''];
           };
 
           web-mode = {
             enable = true;
-            mode = [ ''"\\.html\\'"'' ''"\\.tmpl\\'"'' ];
+            mode = [''"\\.html\\'"'' ''"\\.tmpl\\'"''];
           };
 
           ob.enable = true;

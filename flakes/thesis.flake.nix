@@ -3,35 +3,37 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
-    let
+  outputs = {
+    self,
+    nixpkgs,
+    flake-utils,
+  }:
+    flake-utils.lib.eachDefaultSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
-      python = pkgs.python310.withPackages (ps: with ps; [
-        virtualenv
-        pip
-        ipykernel
-        notebook
+      python = pkgs.python310.withPackages (ps:
+        with ps; [
+          virtualenv
+          pip
+          ipykernel
+          notebook
 
+          python-lsp-server
+          python-lsp-server.optional-dependencies.all
 
-
-        python-lsp-server
-        python-lsp-server.optional-dependencies.all
-
-        # The lsp-bridge plugin has nasty python dependencies
-        # not sure how to isolate them for emacs to use and
-        # and at the same time having working direnv shells
-        epc
-        orjson
-        sexpdata
-        paramiko
-      ]);
+          # The lsp-bridge plugin has nasty python dependencies
+          # not sure how to isolate them for emacs to use and
+          # and at the same time having working direnv shells
+          epc
+          orjson
+          sexpdata
+          paramiko
+        ]);
     in {
       devShells.default = pkgs.mkShell {
         packages = with pkgs; [
           python
           sage
-		  llvmPackages_9.clang-unwrapped
+          llvmPackages_9.clang-unwrapped
         ];
 
         shellHook = ''

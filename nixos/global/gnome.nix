@@ -1,6 +1,4 @@
-{pkgs, ... }:
-
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     kitty
     gnomeExtensions.screen-rotate
@@ -11,9 +9,8 @@
     xorg.xmodmap
     xorg.xev
     xorg.xprop
-
   ];
-  services.udev.packages =  with pkgs; [ gnome.gnome-settings-daemon ];
+  services.udev.packages = with pkgs; [gnome.gnome-settings-daemon];
 
   services = {
     xserver = {
@@ -23,5 +20,4 @@
       desktopManager.gnome.enable = true;
     };
   };
-  
 }

@@ -1,8 +1,10 @@
-{ config, lib, pkgs, ... }:
-
-with lib;
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.programs.emacs.init;
 
   packageFunctionType = mkOptionType {
@@ -12,12 +14,17 @@ let
     merge = mergeOneOption;
   };
 
-  usePackageType = types.submodule ({ name, config, ... }: {
+  usePackageType = types.submodule ({
+    name,
+    config,
+    ...
+  }: {
     options = {
       enable = mkEnableOption "Emacs package ${name}";
 
       package = mkOption {
-        type = types.either (types.str // { description = "name of package"; })
+        type =
+          types.either (types.str // {description = "name of package";})
           packageFunctionType;
         default = name;
         description = ''
@@ -45,7 +52,7 @@ let
 
       diminish = mkOption {
         type = types.listOf types.str;
-        default = [ ];
+        default = [];
         description = ''
           The entries to use for <option>:diminish</option>.
         '';
@@ -53,7 +60,7 @@ let
 
       chords = mkOption {
         type = types.attrsOf types.str;
-        default = { };
+        default = {};
         example = {
           "jj" = "ace-jump-char-mode";
           "jk" = "ace-jump-word-mode";
@@ -65,7 +72,7 @@ let
 
       mode = mkOption {
         type = types.listOf types.str;
-        default = [ ];
+        default = [];
         description = ''
           The entries to use for <option>:mode</option>.
         '';
@@ -73,7 +80,7 @@ let
 
       after = mkOption {
         type = types.listOf types.str;
-        default = [ ];
+        default = [];
         description = ''
           The entries to use for <option>:after</option>.
         '';
@@ -81,7 +88,7 @@ let
 
       bind = mkOption {
         type = types.attrsOf types.str;
-        default = { };
+        default = {};
         example = {
           "M-<up>" = "drag-stuff-up";
           "M-<down>" = "drag-stuff-down";
@@ -93,9 +100,9 @@ let
 
       bindLocal = mkOption {
         type = types.attrsOf (types.attrsOf types.str);
-        default = { };
+        default = {};
         example = {
-          helm-command-map = { "C-c h" = "helm-execute-persistent-action"; };
+          helm-command-map = {"C-c h" = "helm-execute-persistent-action";};
         };
         description = ''
           The entries to use for local keymaps in <option>:bind</option>.
@@ -104,7 +111,7 @@ let
 
       bindStar = mkOption {
         type = types.attrsOf types.str;
-        default = { };
+        default = {};
         example = {
           "M-<up>" = "drag-stuff-up";
           "M-<down>" = "drag-stuff-down";
@@ -116,8 +123,8 @@ let
 
       bindKeyMap = mkOption {
         type = types.attrsOf types.str;
-        default = { };
-        example = { "C-c p" = "projectile-command-map"; };
+        default = {};
+        example = {"C-c p" = "projectile-command-map";};
         description = ''
           The entries to use for <option>:bind-keymap</option>.
         '';
@@ -125,7 +132,7 @@ let
 
       command = mkOption {
         type = types.listOf types.str;
-        default = [ ];
+        default = [];
         description = ''
           The entries to use for <option>:commands</option>.
         '';
@@ -157,7 +164,7 @@ let
 
       hook = mkOption {
         type = types.listOf types.str;
-        default = [ ];
+        default = [];
         description = ''
           The entries to use for <option>:hook</option>.
         '';
@@ -181,41 +188,50 @@ let
 
     config = mkIf config.enable {
       assembly = let
-        quoted = v: ''"${escape [ ''"'' ] v}"'';
+        quoted = v: ''"${escape [''"''] v}"'';
         mkBindHelper = cmd: prefix: bs:
-          optionals (bs != { }) ([ ":${cmd} (${prefix}" ]
-            ++ mapAttrsToList (n: v: "  (${quoted n} . ${v})") bs ++ [ ")" ]);
+          optionals (bs != {}) ([":${cmd} (${prefix}"]
+            ++ mapAttrsToList (n: v: "  (${quoted n} . ${v})") bs
+            ++ [")"]);
 
-        mkAfter = vs: optional (vs != [ ]) ":after (${toString vs})";
-        mkCommand = vs: optional (vs != [ ]) ":commands (${toString vs})";
-        mkDiminish = vs: optional (vs != [ ]) ":diminish (${toString vs})";
+        mkAfter = vs: optional (vs != []) ":after (${toString vs})";
+        mkCommand = vs: optional (vs != []) ":commands (${toString vs})";
+        mkDiminish = vs: optional (vs != []) ":diminish (${toString vs})";
         mkMode = map (v: ":mode ${v}");
         mkBind = mkBindHelper "bind" "";
         mkBindStar = mkBindHelper "bind*" "";
-        mkBindLocal = bs:
-          let mkMap = n: v: mkBindHelper "bind" ":map ${n}" v;
-          in flatten (mapAttrsToList mkMap bs);
+        mkBindLocal = bs: let
+          mkMap = n: v: mkBindHelper "bind" ":map ${n}" v;
+        in
+          flatten (mapAttrsToList mkMap bs);
         mkBindKeyMap = mkBindHelper "bind-keymap" "";
         mkChords = mkBindHelper "chords" "";
         mkHook = map (v: ":hook ${v}");
         mkDefer = v:
-          if isBool v then
-            optional v ":defer t"
-          else
-            [ ":defer ${toString v}" ];
+          if isBool v
+          then optional v ":defer t"
+          else [":defer ${toString v}"];
         mkDemand = v: optional v ":demand t";
         extraAfter = optional (config.general != "") "general";
-      in concatStringsSep "\n  " ([ "(use-package ${name}" ]
-        ++ mkAfter (config.after ++ extraAfter) ++ mkBind config.bind
-        ++ mkBindStar config.bindStar ++ mkBindKeyMap config.bindKeyMap
-        ++ mkBindLocal config.bindLocal ++ mkChords config.chords
-        ++ mkCommand config.command ++ mkDefer config.defer
-        ++ mkDemand config.demand ++ mkDiminish config.diminish
-        ++ mkHook config.hook ++ mkMode config.mode
-        ++ optionals (config.init != "") [ ":init" config.init ]
-        ++ optionals (config.config != "") [ ":config" config.config ]
-        ++ optionals (config.general != "") [ ":general" config.general ]
-        ++ optional (config.extraConfig != "") config.extraConfig) + ")";
+      in
+        concatStringsSep "\n  " (["(use-package ${name}"]
+          ++ mkAfter (config.after ++ extraAfter)
+          ++ mkBind config.bind
+          ++ mkBindStar config.bindStar
+          ++ mkBindKeyMap config.bindKeyMap
+          ++ mkBindLocal config.bindLocal
+          ++ mkChords config.chords
+          ++ mkCommand config.command
+          ++ mkDefer config.defer
+          ++ mkDemand config.demand
+          ++ mkDiminish config.diminish
+          ++ mkHook config.hook
+          ++ mkMode config.mode
+          ++ optionals (config.init != "") [":init" config.init]
+          ++ optionals (config.config != "") [":config" config.config]
+          ++ optionals (config.general != "") [":general" config.general]
+          ++ optional (config.extraConfig != "") config.extraConfig)
+        + ")";
     };
   });
 
@@ -229,12 +245,14 @@ let
       type = types.bool;
       default = false;
       example = true;
-      description = ''
-        Whether to enable recommended ${type} settings.
-      '' + optionalString (extraDescription != "") ''
-        </para><para>
-        ${extraDescription}
-      '';
+      description =
+        ''
+          Whether to enable recommended ${type} settings.
+        ''
+        + optionalString (extraDescription != "") ''
+          </para><para>
+          ${extraDescription}
+        '';
     };
 
   # Recommended GC settings.
@@ -270,74 +288,84 @@ let
   '';
 
   # Whether the configuration makes use of `:diminish`.
-  hasDiminish = any (p: p.diminish != [ ]) (attrValues cfg.usePackage);
+  hasDiminish = any (p: p.diminish != []) (attrValues cfg.usePackage);
 
   # Whether the configuration makes use of `:bind`.
   hasBind =
-    any (p: p.bind != { } || p.bindStar != { }) (attrValues cfg.usePackage);
+    any (p: p.bind != {} || p.bindStar != {}) (attrValues cfg.usePackage);
 
   # Whether the configuration makes use of `:chords`.
-  hasChords = any (p: p.chords != { }) (attrValues cfg.usePackage);
+  hasChords = any (p: p.chords != {}) (attrValues cfg.usePackage);
 
   # Whether the configuration makes use of `:diminish`.
   hasGeneral = any (p: p.general != "") (attrValues cfg.usePackage);
 
-  usePackageSetup = ''
-    (eval-when-compile
-      (require 'package)
+  usePackageSetup =
+    ''
+      (eval-when-compile
+        (require 'package)
 
-      (setq package-archives nil
-            package-enable-at-startup nil
-            package--init-file-ensured t)
+        (setq package-archives nil
+              package-enable-at-startup nil
+              package--init-file-ensured t)
 
-      (require 'use-package)
+        (require 'use-package)
 
-      ;; To help fixing issues during startup.
-      (setq use-package-verbose ${
-        if cfg.usePackageVerbose then "t" else "nil"
+        ;; To help fixing issues during startup.
+        (setq use-package-verbose ${
+        if cfg.usePackageVerbose
+        then "t"
+        else "nil"
       }))
-  '' + optionalString hasDiminish ''
-    ;; For :diminish in (use-package).
-    (require 'diminish)
-  '' + optionalString hasBind ''
-    ;; For :bind in (use-package).
-    (require 'bind-key)
-  '' + optionalString hasChords ''
-    ;; For :chords in (use-package).
-    (use-package use-package-chords
-      :config (key-chord-mode 1))
-  '' + optionalString hasGeneral ''
-    ;; For :general in (use-package).
-    (use-package general
-      :config
-      (general-evil-setup))
-  '';
+    ''
+    + optionalString hasDiminish ''
+      ;; For :diminish in (use-package).
+      (require 'diminish)
+    ''
+    + optionalString hasBind ''
+      ;; For :bind in (use-package).
+      (require 'bind-key)
+    ''
+    + optionalString hasChords ''
+      ;; For :chords in (use-package).
+      (use-package use-package-chords
+        :config (key-chord-mode 1))
+    ''
+    + optionalString hasGeneral ''
+      ;; For :general in (use-package).
+      (use-package general
+        :config
+        (general-evil-setup))
+    '';
 
-  initFile = ''
-    ;;; hm-init.el --- Emacs configuration à la Home Manager.
-    ;;
-    ;; -*- lexical-binding: t; -*-
-    ;;
-    ;;; Commentary:
-    ;;
-    ;; A configuration generated from a Nix based configuration by
-    ;; Home Manager.
-    ;;
-    ;;; Code:
+  initFile =
+    ''
+      ;;; hm-init.el --- Emacs configuration à la Home Manager.
+      ;;
+      ;; -*- lexical-binding: t; -*-
+      ;;
+      ;;; Commentary:
+      ;;
+      ;; A configuration generated from a Nix based configuration by
+      ;; Home Manager.
+      ;;
+      ;;; Code:
 
-    ${optionalString cfg.startupTimer ''
-      ;; Remember when configuration started. See bottom for rest of this.
-      ;; Idea taken from http://writequit.org/org/settings.html.
-      (defconst emacs-start-time (current-time))
-    ''}
+      ${optionalString cfg.startupTimer ''
+        ;; Remember when configuration started. See bottom for rest of this.
+        ;; Idea taken from http://writequit.org/org/settings.html.
+        (defconst emacs-start-time (current-time))
+      ''}
 
-    ${optionalString cfg.recommendedGcSettings gcSettings}
+      ${optionalString cfg.recommendedGcSettings gcSettings}
 
-    ${cfg.prelude}
+      ${cfg.prelude}
 
-    ${usePackageSetup}
-  '' + concatStringsSep "\n\n" (map (getAttr "assembly")
-    (filter (getAttr "enable") (attrValues cfg.usePackage))) + ''
+      ${usePackageSetup}
+    ''
+    + concatStringsSep "\n\n" (map (getAttr "assembly")
+      (filter (getAttr "enable") (attrValues cfg.usePackage)))
+    + ''
 
       ${cfg.postlude}
 
@@ -351,7 +379,6 @@ let
       (provide 'hm-init)
       ;; hm-init.el ends here
     '';
-
 in {
   options.programs.emacs.init = {
     enable = mkEnableOption "Emacs configuration";
@@ -385,7 +412,7 @@ in {
 
     usePackage = mkOption {
       type = types.attrsOf usePackageType;
-      default = { };
+      default = {};
       example = literalExample ''
         {
           dhall-mode = {
@@ -400,35 +427,36 @@ in {
   };
 
   config = mkIf (config.programs.emacs.enable && cfg.enable) {
-    programs.emacs.extraPackages = epkgs:
-      let
-        getPkg = v:
-          if isFunction v then
-            [ (v epkgs) ]
-          else
-            optional (isString v && hasAttr v epkgs) epkgs.${v};
+    programs.emacs.extraPackages = epkgs: let
+      getPkg = v:
+        if isFunction v
+        then [(v epkgs)]
+        else optional (isString v && hasAttr v epkgs) epkgs.${v};
 
-        packages = concatMap (v: getPkg (v.package))
-          (builtins.attrValues cfg.usePackage);
-      in [
-        ((epkgs.trivialBuild {
+      packages =
+        concatMap (v: getPkg (v.package))
+        (builtins.attrValues cfg.usePackage);
+    in [
+      ((epkgs.trivialBuild {
           pname = "hm-init";
           version = "0";
           src = pkgs.writeText "hm-init.el" initFile;
-          packageRequires = lists.unique ([ epkgs.use-package ] ++ packages
+          packageRequires = lists.unique ([epkgs.use-package]
+            ++ packages
             ++ optional hasBind epkgs.bind-key
             ++ optional hasDiminish epkgs.diminish
             ++ optional hasChords epkgs.use-package-chords
             ++ optional hasGeneral epkgs.general);
           preferLocalBuild = true;
           allowSubstitutes = false;
-        }).overrideAttrs (attr: {
+        })
+        .overrideAttrs (attr: {
           buildPhase = ''
             runHook preBuild
             runHook postBuild
           '';
         }))
-      ];
+    ];
 
     home.file.".emacs.d/init.el".text = ''
       (require 'hm-init)
