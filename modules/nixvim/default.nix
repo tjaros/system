@@ -16,7 +16,7 @@ in {
 	  shiftwidth = 4;
 	};
 
-	colorschemes.rose-pine.enable = true;
+	colorschemes.gruvbox.enable = true;
 
       };
     };
