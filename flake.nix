@@ -11,8 +11,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Nixvim
-    nixvim.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixos-23.05";
+    nixvim.url = "github:nix-community/nixvim/nixos-23.05";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
