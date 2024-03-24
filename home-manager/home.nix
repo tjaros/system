@@ -53,7 +53,7 @@ in
       };
   };
 
-  programs.nixvim.enable = true;
+  modules.nixvim.enable = true;
 
   home.packages = with pkgs; [
     #python
