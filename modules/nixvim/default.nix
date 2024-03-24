@@ -18,12 +18,23 @@ in {
 
 	colorschemes.gruvbox.enable = true;
 
+        keymaps = [
+          {
+            action = "<cmd>Telescope live_grep<CR>";
+            key = "<leader>g";
+          }
+        ];
+
 	plugins.lsp = {
 	  enable = true;
 
 	  servers = {
 	    
 	  };
+	};
+
+	plugins.luasnip = {
+	  enable = true;
 	};
 
 	plugins.nvim-cmp = {
