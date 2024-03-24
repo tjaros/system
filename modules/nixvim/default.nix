@@ -6,6 +6,16 @@ let cfg = config.modules.nixvim;
 in {
   options.modules.nixvim= { enable = mkEnableOption "nixvim"; };
     config = mkIf cfg.enable {
-      programs.nixvim.enable = true;
+      programs.nixvim = {
+      	enable = true;
+
+
+	options = {
+	  number = true;
+	  relativenumber = true;
+
+	  shiftwidth = 2;
+	};
+      };
     };
 }
