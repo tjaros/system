@@ -5,30 +5,15 @@ let cfg = config.modules.nixvim;
 
 in {
   options.modules.nixvim= { enable = mkEnableOption "nixvim"; };
-    config = mkIf cfg.enable {
-      programs.nixvim = {
-      	enable = true;
-
-	imports = [
-	  ./keys.nix
-	];
+  config = mkIf cfg.enable {
+    imports = [
+      inputs.nixvim.homeManagerModules.nixvim
+    ];
 
 
-
-	colorschemes.gruvbox.enable = true;
-
-
-	plugins.telescope.enable = true;
-
-	plugins.lsp = {
-	  enable = true;
-
-	  servers = {
-	    
-	  };
-	};
-
-	plugins.luasnip.enable = true;
-
+    programs.nixvim = {
+      enable = true;
+      colorschemes.gruvbox.enable = true;
     };
+  };
 }
