@@ -9,6 +9,10 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Nixvim
+    nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixos-23.05";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -28,7 +32,7 @@
 
     
 
-      # Your custom packages
+    # Your custom packages
     # Accessible through 'nix build', 'nix shell', etc
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     # Formatter for your nix files, available through 'nix fmt'
@@ -53,6 +57,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
+          inputs.nixvim.homeManagerModules.nixvim
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
         ];
