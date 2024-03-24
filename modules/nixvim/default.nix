@@ -35,7 +35,7 @@ in {
 	  };
 	};
 
-	plugins.luasnip.enable = true
+	plugins.luasnip.enable = true;
 
 	plugins.nvim-cmp = {
 	  enable = true;
