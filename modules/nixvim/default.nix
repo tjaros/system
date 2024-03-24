@@ -25,6 +25,8 @@ in {
           }
         ];
 
+	plugins.tescope.enable = true;
+
 	plugins.lsp = {
 	  enable = true;
 
@@ -33,9 +35,7 @@ in {
 	  };
 	};
 
-	plugins.luasnip = {
-	  enable = true;
-	};
+	plugins.luasnip.enable = true
 
 	plugins.nvim-cmp = {
 	  enable = true;
