@@ -9,13 +9,15 @@ in {
       programs.nixvim = {
       	enable = true;
 
+	globals.mapleader = " ";
 
 	options = {
 	  number = true;
-	  relativenumber = true;
-
-	  shiftwidth = 2;
+	  shiftwidth = 4;
 	};
+
+	colorschemes.rose-pine.enable = true;
+
       };
     };
 }
