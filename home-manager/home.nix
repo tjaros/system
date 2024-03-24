@@ -60,7 +60,6 @@ in
     unstable.cargo
     unstable.rustc
     zathura
-    #unstable.helix
     spotify
     networkmanager-openvpn
     openvpn
@@ -86,8 +85,7 @@ in
     pylint
     verilog
     gtkwave
-	go
-    unstable.lunarvim
+    go
 
     gittyup
 
