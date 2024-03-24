@@ -4,16 +4,18 @@ with lib;
 let cfg = config.modules.nixvim;
 
 in {
+  imports = [
+    inputs.nixvim.homeManagerModules.nixvim
+    ./keys.nix
+  ];
+
   options.modules.nixvim= { enable = mkEnableOption "nixvim"; };
   config = mkIf cfg.enable {
-    imports = [
-      inputs.nixvim.homeManagerModules.nixvim
-    ];
 
 
     programs.nixvim = {
       enable = true;
-      colorschemes.gruvbox.enable = true;
+      colorschemes.one.enable = true;
     };
   };
 }
