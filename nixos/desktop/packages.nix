@@ -2,6 +2,7 @@
   environment.systemPackages = with pkgs; [
     theme-sh
     stylish
+    tmux
     glibc
     pavucontrol
     gcc-arm-embedded
