@@ -5,7 +5,9 @@
       lsp = {
         enable = true;
         servers = {
-          clangd = {enable = true;};
+          clangd.enable = true;
+	  nil_ls.enable = true;
+	  yamlls.enable = true;
         };
         keymaps = {
           silent = true;
