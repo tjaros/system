@@ -57,7 +57,7 @@
     # Set fold settings
     # These options were reccommended by nvim-ufo
     # See: https://github.com/kevinhwang91/nvim-ufo#minimal-configuration
-    foldcolumn = "0";
+    foldcolumn = "1";
     foldlevel = 99;
     foldlevelstart = 99;
     foldenable = true;
