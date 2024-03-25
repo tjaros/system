@@ -4,5 +4,7 @@
     ./telescope.nix
     ./git.nix
     ./utils
+    ./lsp
+    ./completion
   ];
 }
