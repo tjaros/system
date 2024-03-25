@@ -90,6 +90,8 @@ in {
     gtkwave
     go
 
+    unstable.lunarvim
+
     gittyup
 
     quartus-prime-lite
