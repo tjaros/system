@@ -5,15 +5,7 @@
       lsp = {
         enable = true;
         servers = {
-          clandg = {enable = true;};
-          html = {enable = true;};
-          lua-ls = {enable = true;};
-          nil_ls = {enable = true;};
-          marksman = {enable = true;};
-          pyright = {enable = true;};
-          gopls = {enable = true;};
-          terraformls = {enable = true;};
-          yamlls = {enable = true;};
+          clangd = {enable = true;};
         };
         keymaps = {
           silent = true;
