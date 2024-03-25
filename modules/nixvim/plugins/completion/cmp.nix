@@ -3,7 +3,6 @@
     plugins.nvim-cmp = {
       enable = true;
       autoEnableSources = true;
-      settings = {
         performance = {
 	  debounce = 60;
 	  fetchingTimeout = 200;
@@ -21,7 +20,6 @@
 	    keywordLength = 3;
 	  }
 	];
-      };
     };
 
     plugins.cmp-nvim-lsp.enable = true;
