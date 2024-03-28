@@ -5,7 +5,7 @@
       lsp = {
         enable = true;
         servers = {
-          clangd.enable = true;
+          ccls.enable = true;
           nil_ls.enable = true;
           yamlls.enable = true;
         };
