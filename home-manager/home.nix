@@ -64,6 +64,7 @@ in {
     unstable.rustc
     zathura
     spotify
+    globalprotect-openconnect
     networkmanager-openvpn
     openvpn
     unrar
@@ -77,6 +78,7 @@ in {
     autokey
     libreoffice
     discord
+    jdk17
     graphviz
     inkscape
     antimicrox

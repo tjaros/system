@@ -12,4 +12,8 @@
     shell = pkgs.zsh;
   };
 
+  services.xserver.displayManager.autoLogin = {
+    enable = true;
+    user = "tjaros";
+  };
 }

@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   programs.nixvim = {
     plugins = {
       lsp-format = {enable = true;};
@@ -8,6 +8,7 @@
           clangd.enable = true;
           nil_ls.enable = true;
           yamlls.enable = true;
+          pylsp.enable = true;
         };
         keymaps = {
           silent = true;

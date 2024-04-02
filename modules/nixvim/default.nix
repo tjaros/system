@@ -24,7 +24,10 @@ in {
 
     programs.nixvim = {
       enable = true;
-      colorschemes.one.enable = true;
+      colorschemes.rose-pine = {
+        enable = true;
+        transparentBackground = true;
+      };
     };
   };
 }

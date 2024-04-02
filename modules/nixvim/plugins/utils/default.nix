@@ -3,5 +3,6 @@
     ./ufo.nix
     ./which-key.nix
     ./harpoon.nix
+    ./copilot.nix
   ];
 }

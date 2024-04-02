@@ -8,6 +8,7 @@
         fetchingTimeout = 200;
         maxViewEntries = 30;
       };
+      snippet = {expand = "luasnip";};
       sources = [
         {name = "nvim_lsp";}
         {
@@ -15,8 +16,13 @@
           option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
           keywordLength = 3;
         }
+        {name = "copilot";}
         {
           name = "path";
+          keywordLength = 3;
+        }
+        {
+          name = "luasnip";
           keywordLength = 3;
         }
       ];
@@ -36,5 +42,10 @@
     plugins.cmp-buffer.enable = true;
     plugins.cmp-path.enable = true;
     plugins.cmp-cmdline.enable = true;
+    plugins.cmp_luasnip.enable = true;
+
+    extraConfigLua = ''
+      luasnip = require("luasnip")
+    '';
   };
 }

@@ -4,7 +4,6 @@
     ./none-ls.nix
     ./lspsaga.nix
     ./hlchunk.nix
-    ./fidget.nix
     ./conform.nix
   ];
 }
