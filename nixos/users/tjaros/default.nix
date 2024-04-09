@@ -8,7 +8,7 @@
     initialPassword = "correcthorsebatterystaple";
     isNormalUser = true;
     description = "Tom";
-    extraGroups = ["networkmanager" "wheel" "video" "audio" "docker" "chipwhisperer" "libvirtd" "dialout"];
+    extraGroups = ["networkmanager" "wheel" "video" "audio" "docker" "chipwhisperer" "libvirtd" "dialout" "input" "uinput" "plugdev"];
     shell = pkgs.zsh;
   };
 

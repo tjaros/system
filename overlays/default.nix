@@ -9,6 +9,22 @@
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
+
+    # I want to override quartus-prime-lite package so that i can download zip from url and extract it to one of the install folders
+    #    quartus-lite = let
+    #      eclipse-nios = builtins.fetchtarball {
+    #        url = "https://archive.eclipse.org/technology/epp/downloads/release/mars/2/eclipse-cpp-mars-2-linux-gtk-x86_64.tar.gz";
+    #      };
+    #    in
+    #      prev.quartus-lite.overrideAttrs (oldAttrs:
+    #			inherit unwrapped;
+    #	  rec {
+    #        postInstall =
+    #          (oldAttrs.postInstall or "")
+    #          + ''
+    #            mkdir -p ${unwrapped}/opt/quartus/touch
+    #          '';
+    #      });
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will

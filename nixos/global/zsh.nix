@@ -4,5 +4,8 @@
   ];
   programs.zsh = {
     enable = true;
+    interactiveShellInit = ''
+      eval "$(starship init zsh)"
+    '';
   };
 }
