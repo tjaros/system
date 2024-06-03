@@ -10,12 +10,15 @@
     acpi
     xorg.xbacklight
     xorg.xmodmap
+    xorg.xhost
+    xorg.xev
+    xorg.xprop
   ];
 
   services = {
     xserver = {
       enable = true;
-      videoDrivers = ["nvidia" "intel"];
+      videoDrivers = ["intel"];
       windowManager.dwm.enable = true;
       displayManager.sddm.enable = true;
       layout = "us";

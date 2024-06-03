@@ -57,14 +57,16 @@ in {
   };
 
   modules.nixvim.enable = true;
+  modules.tmux.enable = true;
 
   home.packages = with pkgs; [
-    #python
+    #python-packages
     unstable.cargo
     unstable.rustc
     zathura
     spotify
-    globalprotect-openconnect
+    gp-saml-gui
+    openconnect
     networkmanager-openvpn
     openvpn
     unrar
@@ -75,21 +77,23 @@ in {
     winetricks
     gimp
     runelite
+    moonlight-qt
     autokey
     libreoffice
     discord
-    jdk17
     graphviz
     inkscape
     antimicrox
     distrobox
     vscode
     gnumake
+    unstable.zed-editor
     llvmPackages_9.clang-unwrapped
     black
     pylint
     verilog
     gtkwave
+    vbindiff
     go
 
     unstable.lunarvim

@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    unstable.zed-editor
     theme-sh
     stylish
-    tmux
     glibc
     pavucontrol
     gcc-arm-embedded

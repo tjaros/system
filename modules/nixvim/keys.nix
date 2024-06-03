@@ -5,7 +5,7 @@
       {
         mode = "n";
         key = "<leader>fv";
-        action = "<cmd>:Ex<cr>";
+        action = "<cmd>:e .<cr>";
         options = {desc = "Open netrw";};
       }
       {

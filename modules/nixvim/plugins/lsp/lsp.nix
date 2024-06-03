@@ -9,6 +9,7 @@
           nil_ls.enable = true;
           yamlls.enable = true;
           pylsp.enable = true;
+          rust-analyzer.enable = true;
         };
         keymaps = {
           silent = true;

@@ -26,13 +26,15 @@
     };
   };
 
+  networking.wireguard.enable = true;
+
   imports = [
     ./desktop
     ./global/fingerprint-reader.nix
     ./global/gnome.nix
     ./global/zsh.nix
     ./global/fonts.nix
-    ./global/keybase.nix
+    ./global/intel.nix
     ./global/locale.nix
     ./global/misc.nix
     ./global/pipewire.nix

@@ -9,5 +9,6 @@
     ./emacs
     ./hypr
     ./nixvim
+    ./tmux
   ];
 }

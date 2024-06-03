@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    kitty
+    st
     gnomeExtensions.screen-rotate
     gnome.gnome-tweaks
     gnomeExtensions.pop-shell
@@ -22,7 +22,9 @@
     xserver = {
       enable = true;
       videoDrivers = ["intel"];
-      displayManager.gdm.enable = true;
+      displayManager.gdm = {
+        enable = true;
+      };
       desktopManager.gnome.enable = true;
     };
   };
