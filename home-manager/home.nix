@@ -72,6 +72,7 @@ in {
     unrar
     element-desktop
     xournalpp
+    chromium
     unzip
     wine
     winetricks
@@ -81,6 +82,7 @@ in {
     autokey
     libreoffice
     discord
+    lutris
     graphviz
     inkscape
     antimicrox

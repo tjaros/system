@@ -5,7 +5,6 @@
     stylish
     glibc
     pavucontrol
-    gcc-arm-embedded
     bear
     ripgrep
     nodejs_20
@@ -21,8 +20,6 @@
     nix-direnv
     pkg-config
     firefox
-    cmake
-    gcc
     thunderbird
     keepassxc
     wget
