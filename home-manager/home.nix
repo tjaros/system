@@ -65,7 +65,6 @@ in {
     openconnect
     networkmanager-openvpn
     openvpn
-    arc-browser
     unrar
     element-desktop
     xournalpp
