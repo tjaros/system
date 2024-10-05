@@ -11,14 +11,8 @@
       pip
       virtualenv
 
-      # LSP
-      python-lsp-server
-      python-lsp-server.optional-dependencies.all
-
-      epc
-      orjson
-      sexpdata
-      paramiko
+      pyautogui
+      tkinter
     ]);
 in {
   imports = [
@@ -61,25 +55,28 @@ in {
 
   home.packages = with pkgs; [
     #python-packages
+    python
     unstable.cargo
     unstable.rustc
     zathura
     spotify
+    prismlauncher
     gp-saml-gui
     openconnect
     networkmanager-openvpn
     openvpn
+    arc-browser
     unrar
     element-desktop
     xournalpp
     chromium
     unzip
-    wine
-    winetricks
+    steam
     gimp
     runelite
     moonlight-qt
     autokey
+    whatsapp-for-linux
     libreoffice
     discord
     lutris
@@ -92,11 +89,13 @@ in {
     unstable.zed-editor
     llvmPackages_9.clang-unwrapped
     black
+    jdk21_headless
     pylint
     verilog
     gtkwave
     vbindiff
     go
+    zap
 
     unstable.lunarvim
 

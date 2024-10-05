@@ -24,5 +24,6 @@
     keepassxc
     wget
     usbutils
+    zip
   ];
 }
