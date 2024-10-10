@@ -79,6 +79,7 @@ in {
     libreoffice
     discord
     lutris
+    obsidian
     graphviz
     inkscape
     antimicrox
