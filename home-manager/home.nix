@@ -50,11 +50,12 @@ in {
     };
   };
 
-  modules.nixvim.enable = true;
+  modules.nixvim.enable = false;
   modules.tmux.enable = true;
 
   home.packages = with pkgs; [
     #python-packages
+    lunarvim
     python
     unstable.cargo
     unstable.rustc
@@ -87,7 +88,7 @@ in {
     vscode
     gnumake
     unstable.zed-editor
-    llvmPackages_9.clang-unwrapped
+    llvmPackages_12.clang-unwrapped
     black
     jdk21_headless
     pylint
@@ -97,11 +98,9 @@ in {
     go
     zap
 
-    unstable.lunarvim
-
     gittyup
 
-    quartus-prime-lite
+    #quartus-prime-lite
     unstable.texliveFull
 
     fzf

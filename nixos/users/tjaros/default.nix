@@ -13,7 +13,7 @@
   };
 
   services.xserver.displayManager.autoLogin = {
-    enable = true;
+    enable = false;
     user = "tjaros";
   };
 }

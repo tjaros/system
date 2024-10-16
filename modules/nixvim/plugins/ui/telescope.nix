@@ -4,7 +4,7 @@
       enable = true;
 
       extensions = {
-        file_browser.enable = true;
+        #file_browser.enable = true;
         fzf-native.enable = true;
       };
 
