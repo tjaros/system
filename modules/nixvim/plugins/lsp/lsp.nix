@@ -6,10 +6,14 @@
         enable = true;
         servers = {
           clangd.enable = true;
-          nil_ls.enable = true;
+          nil-ls.enable = true;
           yamlls.enable = true;
           pylsp.enable = true;
-          rust-analyzer.enable = true;
+          rust-analyzer = {
+            enable = true;
+            installCargo = false;
+            installRustc = false;
+          };
         };
         keymaps = {
           silent = true;

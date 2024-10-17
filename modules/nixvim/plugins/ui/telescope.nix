@@ -8,7 +8,7 @@
         fzf-native.enable = true;
       };
 
-      defaults = {
+      settings.defaults = {
         layout_strategy = "bottom_pane";
         layout_config = {
           height = 0.3;
@@ -19,23 +19,23 @@
       keymaps = {
         "<leader>/" = {
           action = "current_buffer_fuzzy_find, {}";
-          desc = "Buffer fzf.";
+          options.desc = "Buffer fzf.";
         };
         "<leader>:" = {
           action = "command_history, {}";
-          desc = "Command History";
+          options.desc = "Command History";
         };
         "<leader>ff" = {
           action = "find_files, {}";
-          desc = "Find project files";
+          options.desc = "Find project files";
         };
         "<leader>fr" = {
           action = "live_grep, {}";
-          desc = "Find text";
+          options.desc = "Find text";
         };
         "<leader>fg" = {
           action = "oldfiles, {}";
-          desc = "Recent";
+          options.desc = "Recent";
         };
       };
     };

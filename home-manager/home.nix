@@ -50,7 +50,7 @@ in {
     };
   };
 
-  modules.nixvim.enable = false;
+  modules.nixvim.enable = true;
   modules.tmux.enable = true;
 
   home.packages = with pkgs; [

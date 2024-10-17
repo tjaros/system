@@ -26,7 +26,7 @@ in {
       enable = true;
       colorschemes.rose-pine = {
         enable = true;
-        transparentBackground = true;
+        settings.enable.transparency = true;
       };
     };
   };
