@@ -6,7 +6,6 @@
     glibc
     pavucontrol
     bear
-    stlink
     ripgrep
     nodejs_20
     rustup
