@@ -4,7 +4,7 @@
       enable = true;
 
       extensions = {
-        #file_browser.enable = true;
+        file-browser.enable = true;
         fzf-native.enable = true;
       };
 
@@ -26,7 +26,7 @@
           options.desc = "Command History";
         };
         "<leader>ff" = {
-          action = "find_files, {}";
+          action = "find_files";
           options.desc = "Find project files";
         };
         "<leader>fr" = {

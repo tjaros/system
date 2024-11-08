@@ -55,8 +55,8 @@ in {
 
   home.packages = with pkgs; [
     #python-packages
-    lunarvim
-    python
+    #lunarvim
+    #python
     unstable.cargo
     unstable.rustc
     zathura
