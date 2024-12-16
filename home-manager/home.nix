@@ -79,6 +79,7 @@ in {
     whatsapp-for-linux
     libreoffice
     discord
+	unstable.hdos
     lutris
     obsidian
     graphviz

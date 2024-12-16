@@ -1,9 +1,9 @@
 {
   programs.nixvim = {
     plugins.conform-nvim = {
-      enable = true;
+      enable = false;
       formatOnSave = {
-        lspFallback = true;
+        lspFallback = false;
         timeoutMs = 500;
       };
       notifyOnError = true;

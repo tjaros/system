@@ -2,7 +2,11 @@
   environment.systemPackages = with pkgs; [
     unstable.zed-editor
     theme-sh
+	gdb
+	busybox
     stylish
+	dfu-util
+	openocd
     glibc
     pavucontrol
     bear
