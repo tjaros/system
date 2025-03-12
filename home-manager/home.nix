@@ -50,8 +50,8 @@ in {
     };
   };
 
-  modules.nixvim.enable = true;
   modules.tmux.enable = true;
+  modules.nixvim.enable = true;
 
   home.packages = with pkgs; [
     #python-packages
@@ -75,21 +75,20 @@ in {
     gimp
     runelite
     moonlight-qt
-    autokey
     whatsapp-for-linux
     libreoffice
     discord
-	unstable.hdos
     lutris
     obsidian
     graphviz
     inkscape
+    remmina
     antimicrox
     distrobox
     vscode
     gnumake
-    unstable.zed-editor
     llvmPackages_12.clang-unwrapped
+    unstable.koreader
     black
     jdk21_headless
     pylint

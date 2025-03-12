@@ -26,12 +26,16 @@
     };
   };
 
+  programs.nix-ld.enable = true;
+  programs.ssh.forwardX11 = true;
+  programs.ssh.setXAuthLocation = true;
+
   networking.wireguard.enable = true;
 
   imports = [
     ./desktop
     ./global/fingerprint-reader.nix
-    ./global/gnome.nix
+    ./global/kde.nix
     ./global/zsh.nix
     ./global/fonts.nix
     ./global/intel.nix

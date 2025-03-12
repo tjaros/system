@@ -2,6 +2,7 @@
   environment.systemPackages = with pkgs; [
     st
     gnomeExtensions.screen-rotate
+    gnomeExtensions.unite
     gnome.gnome-tweaks
     gnomeExtensions.pop-shell
     gnome.zenity

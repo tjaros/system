@@ -18,11 +18,11 @@
 
       keymaps = {
         "<leader>/" = {
-          action = "current_buffer_fuzzy_find, {}";
+          action = "current_buffer_fuzzy_find";
           options.desc = "Buffer fzf.";
         };
         "<leader>:" = {
-          action = "command_history, {}";
+          action = "command_history";
           options.desc = "Command History";
         };
         "<leader>ff" = {
@@ -30,33 +30,14 @@
           options.desc = "Find project files";
         };
         "<leader>fr" = {
-          action = "live_grep, {}";
+          action = "live_grep";
           options.desc = "Find text";
         };
         "<leader>fg" = {
-          action = "oldfiles, {}";
+          action = "oldfiles";
           options.desc = "Recent";
         };
       };
     };
-
-    extraPlugins = with pkgs.vimPlugins; [
-      telescope-zoxide
-    ];
-
-    extraConfigLua = ''
-      require("telescope").load_extension("zoxide")
-    '';
-
-    keymaps = [
-      {
-        mode = "n";
-        key = "<leader>fz";
-        action = "<cmd>Telescope zoxide list<CR>";
-        options = {
-          desc = "LazyGit (root dir)";
-        };
-      }
-    ];
   };
 }
