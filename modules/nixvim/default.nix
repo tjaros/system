@@ -10,9 +10,6 @@ with lib; let
 in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    ./keys.nix
-    ./settings.nix
-    ./plugins
   ];
 
   options.modules.nixvim = {enable = mkEnableOption "nixvim";};

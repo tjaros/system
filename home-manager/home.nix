@@ -62,23 +62,26 @@ in {
     zathura
     spotify
     prismlauncher
+    stremio
     gp-saml-gui
     openconnect
+    unstable.gfn-electron
     networkmanager-openvpn
     openvpn
     unrar
     element-desktop
     xournalpp
-    chromium
+    unstable.chromium
     unzip
     steam
     gimp
     runelite
     moonlight-qt
     whatsapp-for-linux
+    unstable.path-of-building
     libreoffice
     discord
-    lutris
+    unstable.lutris
     obsidian
     graphviz
     inkscape

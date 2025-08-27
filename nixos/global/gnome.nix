@@ -3,10 +3,10 @@
     st
     gnomeExtensions.screen-rotate
     gnomeExtensions.unite
-    gnome.gnome-tweaks
+    gnome-tweaks
     gnomeExtensions.pop-shell
-    gnome.zenity
-    gnome.networkmanager-openvpn
+    zenity
+    networkmanager-openvpn
     xorg.xhost
     xorg.xmodmap
     xorg.xev
@@ -15,7 +15,7 @@
 
   programs.seahorse.enable = true;
 
-  services.udev.packages = with pkgs; [gnome.gnome-settings-daemon];
+  services.udev.packages = with pkgs; [gnome-settings-daemon];
 
   security.pam.services.gdm.enableGnomeKeyring = true;
 

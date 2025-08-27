@@ -26,16 +26,15 @@
     };
   };
 
-  programs.nix-ld.enable = true;
-  programs.ssh.forwardX11 = true;
-  programs.ssh.setXAuthLocation = true;
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
+  programs.nix-ld.enable = true;
   networking.wireguard.enable = true;
 
   imports = [
     ./desktop
     ./global/fingerprint-reader.nix
-    ./global/kde.nix
+    ./global/gnome.nix
     ./global/zsh.nix
     ./global/fonts.nix
     ./global/intel.nix
@@ -64,6 +63,13 @@
     };
   };
 
+  security.pam.u2f = {
+    enable = true;
+    settings = {
+      authfile = "/etc/u2f-mappings";
+    };
+  };
+
   networking = {
     hostName = "lordaeron";
     networkmanager.enable = true;
@@ -85,13 +91,20 @@
     # Making legacy nix commands consistent as well, awesome!
     nixPath = ["/etc/nix/path"];
   };
-  environment.etc =
-    lib.mapAttrs'
-    (name: value: {
-      name = "nix/path/${name}";
-      value.source = value.flake;
-    })
-    config.nix.registry;
+  environment = {
+    etc =
+      lib.mapAttrs'
+      (name: value: {
+        name = "nix/path/${name}";
+        value.source = value.flake;
+      })
+      config.nix.registry
+      // {
+        u2f-mappings.text = ''
+          tjaros:wrT3Or/8SoBi19wgEx1CWh4OE6ELTfHHZnDYevNfX6bEXC9IKU4kKUs33imVm5s8JKQRTp9sRWpoNwd9pMVRSQ==,uWrGt2Y+GYf6BEiG+ZJ2/PyRVvS0zqwxH5mVBBuYSrUAvV41zgc7ypuGX1idHRmKdJ6m7k4Ly9CK7NoiCnOOhA==,es256,+presence
+        '';
+      };
+  };
 
   systemd.services.NetworkManager-wait-online.enable = false;
 
