@@ -62,17 +62,23 @@ in {
     zathura
     spotify
     prismlauncher
+    qtscrcpy
+    scrcpy
     stremio
     gp-saml-gui
     openconnect
     unstable.gfn-electron
     networkmanager-openvpn
     openvpn
+    telegram-desktop
     unrar
     element-desktop
+    gnuplot
+    picoscope
     xournalpp
     unstable.chromium
     unzip
+    kodi
     steam
     gimp
     runelite
@@ -88,7 +94,7 @@ in {
     remmina
     antimicrox
     distrobox
-    vscode
+    unstable.vscode
     gnumake
     llvmPackages_12.clang-unwrapped
     unstable.koreader
@@ -104,8 +110,6 @@ in {
     gittyup
 
     #quartus-prime-lite
-    unstable.texliveFull
-
     fzf
     bat
 
