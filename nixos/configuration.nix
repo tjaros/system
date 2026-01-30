@@ -31,6 +31,11 @@
   programs.nix-ld.enable = true;
   networking.wireguard.enable = true;
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
   imports = [
     ./desktop
     ./global/fingerprint-reader.nix
@@ -107,6 +112,15 @@
   };
 
   systemd.services.NetworkManager-wait-online.enable = false;
+
+  # services.sunshine = {
+  #  enable = true;
+  #  autoStart = true;
+  #  capSysAdmin = true;
+  #  openFirewall = true;
+  #  
+  #};
+
 
   system.stateVersion = "23.05";
 }

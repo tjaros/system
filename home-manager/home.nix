@@ -62,8 +62,6 @@ in {
     zathura
     spotify
     prismlauncher
-    qtscrcpy
-    scrcpy
     stremio
     gp-saml-gui
     openconnect
@@ -82,8 +80,6 @@ in {
     steam
     gimp
     runelite
-    moonlight-qt
-    whatsapp-for-linux
     unstable.path-of-building
     libreoffice
     discord
@@ -96,12 +92,11 @@ in {
     distrobox
     unstable.vscode
     gnumake
-    llvmPackages_12.clang-unwrapped
     unstable.koreader
     black
     jdk21_headless
     pylint
-    verilog
+    iverilog
     gtkwave
     vbindiff
     go
@@ -114,7 +109,6 @@ in {
     bat
 
     unstable.zoom-us
-    transmission-qt
   ];
 
   home.sessionVariables = {
