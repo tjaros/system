@@ -53,19 +53,14 @@ in {
   modules.tmux.enable = true;
   modules.nixvim.enable = true;
 
+
   home.packages = with pkgs; [
-    #python-packages
-    #lunarvim
-    #python
+    lunarvim
     unstable.cargo
     unstable.rustc
     zathura
     spotify
-    prismlauncher
-    stremio
-    gp-saml-gui
     openconnect
-    unstable.gfn-electron
     networkmanager-openvpn
     openvpn
     telegram-desktop
@@ -76,20 +71,16 @@ in {
     xournalpp
     unstable.chromium
     unzip
-    kodi
-    steam
     gimp
     runelite
-    unstable.path-of-building
     libreoffice
     discord
     unstable.lutris
     obsidian
+    heroic
     graphviz
-    inkscape
     remmina
     antimicrox
-    distrobox
     unstable.vscode
     gnumake
     unstable.koreader
@@ -99,8 +90,8 @@ in {
     iverilog
     gtkwave
     vbindiff
-    go
-    zap
+
+
 
     gittyup
 
@@ -109,6 +100,24 @@ in {
     bat
 
     unstable.zoom-us
+
+
+        steam-run
+    sgdboop # steamgriddb
+    mangohud
+
+    # Roms Manager
+    steam-rom-manager
+
+    # PS
+    pcsx2
+
+    # Vulkan tools
+    vulkan-tools
+    mesa-demos
+
+    # Additional tools
+    libstrangle
   ];
 
   home.sessionVariables = {

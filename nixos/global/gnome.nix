@@ -22,7 +22,7 @@
   services = {
     xserver = {
       enable = true;
-      videoDrivers = ["intel"];
+      videoDrivers = ["amdgpu"];
       displayManager.gdm = {
         enable = true;
       };
